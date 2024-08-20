@@ -26,5 +26,7 @@ public:
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
 		Client = _ReadUpdateClient(Client);
 		Client.Save();
+		Client.Print();
+
 	}
 };
