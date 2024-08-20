@@ -8,7 +8,7 @@
 using namespace std;
 
 const string Seperator = "#//#";
-const string ClientPathFile = "#//#";
+const string ClientPathFile = "clients.txt";
 //const string  ClientsFileName = "clients.txt";
 //const string  UsersFileName = "users.txt";
 //const string  Seperator = "#%&#";
@@ -112,6 +112,15 @@ private:
 	}
 
 public:
+
+	clsBankClient(string AccountNumber) : clsPerson("", "", "", "") {
+		if (IsClientExist(AccountNumber)) {
+			cout << "This AccountNumber is existed." << endl;
+		}
+		else {
+			*this = GetAddNewClientObject(AccountNumber);
+		}
+	}
 	clsBankClient(enMode Mode, string FirstName, string LastName,
 		string Email, string Phone, string AccountNumber, string PinCode,
 		float AccountBalance) :
@@ -226,7 +235,7 @@ public:
 		return true;
 	}
 
-	
+
 
 	static vector <clsBankClient> GetClientsList()
 	{

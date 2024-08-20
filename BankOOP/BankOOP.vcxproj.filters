@@ -62,5 +62,8 @@
     <ClInclude Include="ShowClients.h">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
+    <ClInclude Include="AddNewClient.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
