@@ -322,5 +322,13 @@ public:
 		_AccountBalance -= Amount;
 		Save();
 	}
-
+	static float GetTotalBalance() {
+		vector <clsBankClient> vClients = clsBankClient::GetClientsList();
+		double TotalBalances = 0;
+		for (clsBankClient C : vClients)
+		{
+			TotalBalances += C.AccountBalance;
+		}
+		return TotalBalances;
+	}
 };

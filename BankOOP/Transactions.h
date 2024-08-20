@@ -59,7 +59,7 @@ private:
 		cout << "\t\t\t\t\t   [2] Withdraw." << endl;
 		cout << "\t\t\t\t\t   [3] Total Balances." << endl;
 		cout << "\t\t\t\t\t   [4] Main Menue." << endl;
-		cout << "\t\t\t\t\t====================================================" << endl;
+		cout << "\t\t\t\t====================================================" << endl;
 		enTransactionsMenueOptions Option = (enTransactionsMenueOptions)clsUtil::ReadNumberInRange(1, 4, "\t\t\t\tChoose what do you want to do? ");
 		_RoutingTransactions(Option);
 	}
