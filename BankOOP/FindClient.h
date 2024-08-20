@@ -11,7 +11,7 @@ private:
 
 	static void _ShowResult(string AccountNumber, clsBankClient Client) {
 		if (Client.IsEmpty()) {
-			cout << "\nClient with Account Number (" << AccountNumber << ") is Not Found!";
+			cout << "\nClient with Account Number (" << AccountNumber << ") is Not Found!" << endl;
 		}
 		else {
 			Client.Print();

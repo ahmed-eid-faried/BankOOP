@@ -22,6 +22,9 @@
     <Filter Include="Header Files\login">
       <UniqueIdentifier>{e18d2998-674e-426e-8a18-7dfea006056f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ui\Transactions">
+      <UniqueIdentifier>{44a41464-bc46-499b-abf5-b6a9899f298e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BankOOP.cpp">
@@ -82,6 +85,15 @@
     </ClInclude>
     <ClInclude Include="LoginScreen.h">
       <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="Deposit.h">
+      <Filter>Header Files\ui\Transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="Withdraw.h">
+      <Filter>Header Files\ui\Transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="TotalBalances.h">
+      <Filter>Header Files\ui\Transactions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
