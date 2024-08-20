@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{9f233eba-f653-47a1-a62e-098d5a67a40f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ui">
+      <UniqueIdentifier>{47a9ed61-6185-47a9-b033-659cc3cbe4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\login">
+      <UniqueIdentifier>{e18d2998-674e-426e-8a18-7dfea006056f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BankOOP.cpp">
@@ -20,26 +29,35 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="clsPerson.h">
+    <ClInclude Include="Main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="clsBankClient.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="clsDate.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="clsInputValidate.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="clsPerson.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="clsString.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="clsUtil.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="Main.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="clsMainMenu.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="clsScreen.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="pre.h">
+      <Filter>Header Files\login</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

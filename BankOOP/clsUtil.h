@@ -9,6 +9,20 @@ class clsUtil
 {
 
 public:
+    static int ReadNumberInRange(int From, int To, string Message = "ENTER NUMBER") {
+        int NUM;
+        do {
+            cout << Message << " FROM " << to_string(From) << " TO " << to_string(To) << ": ";
+            cin >> NUM;
+        } while (NUM < From || NUM > To);
+        return NUM;
+    }
+    static bool ReadBool(string Message) {
+        char AddMore = 'Y';
+        cout << Message << " Y/N? " << endl;
+        cin >> AddMore;
+        return (toupper(AddMore) == 'Y');
+    }
     enum enCharType { SamallLetter = 1, CapitalLetter = 2,  
                       Digit = 3 , MixChars=4 , SpecialCharacter = 5};
 

@@ -10,7 +10,7 @@
 void PrintClientRecordBalanceLine(clsBankClient Client)
 {
 
-    cout << "| " << setw(15) << left << Client.AccountNumber();
+    cout << "| " << setw(15) << left << Client.AccountNumber;
     cout << "| " << setw(40) << left << Client.FullName();
     cout << "| " << setw(12) << left << Client.AccountBalance;
 
@@ -50,10 +50,9 @@ void ShowTotalBalances()
     cout << "\t\t\t\t\t   ( " << clsUtil::NumberToText(TotalBalances) << ")";
 }
 
-int main()
+void Example()
 
 {
     ShowTotalBalances();
-    system("pause>0");
-    return 0;
+ 
 }
