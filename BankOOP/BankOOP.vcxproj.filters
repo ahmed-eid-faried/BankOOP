@@ -53,7 +53,7 @@
     <ClInclude Include="clsUtil.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="clsMainMenu.h">
+    <ClInclude Include="clsMainMenue.h">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
     <ClInclude Include="clsScreen.h">

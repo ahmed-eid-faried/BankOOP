@@ -22,7 +22,7 @@ private:
 public:
 	static void UpdateClient() {
 		_DrawScreenHeader("Update Client");
-		string AccountNumber = clsBankClient::ReadAccountNumber("\nPlease enter AccountNumber? ", false);
+		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\nPlease enter AccountNumber? ");;
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
 		Client = _ReadUpdateClient(Client);
 		Client.Save();

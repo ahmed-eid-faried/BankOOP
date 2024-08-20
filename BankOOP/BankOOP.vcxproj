@@ -135,7 +135,7 @@
     <ClInclude Include="clsDate.h" />
     <ClInclude Include="clsDeleteClient.h" />
     <ClInclude Include="clsInputValidate.h" />
-    <ClInclude Include="clsMainMenu.h" />
+    <ClInclude Include="clsMainMenue.h" />
     <ClInclude Include="clsPerson.h" />
     <ClInclude Include="clsScreen.h" />
     <ClInclude Include="clsString.h" />

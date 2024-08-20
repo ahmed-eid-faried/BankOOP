@@ -20,7 +20,7 @@ private:
 public:
 	static void FindClient() {
 		_DrawScreenHeader("Find Client");
-		string AccountNumber = clsBankClient::ReadAccountNumber("\nPlease enter AccountNumber? ", false);
+		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\nPlease enter AccountNumber? ");;
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
 		_ShowResult(AccountNumber, Client);
 	}

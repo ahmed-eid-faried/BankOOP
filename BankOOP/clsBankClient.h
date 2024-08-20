@@ -113,17 +113,29 @@ private:
 	}
 
 public:
-	static string ReadAccountNumber(string Message = "ENTER YOUR AccountNumber: ", bool IsEixsted = true) {
+	static string ReadAccountNumberEixsted(string Message = "ENTER YOUR AccountNumber: ") {
+		string AccountNumber = "";
+		bool state = false;
+		do {
+			AccountNumber = clsUtil::ReadString(Message);
+			state = (Find(AccountNumber).IsEmpty()) || AccountNumber == "";
+			if (state && AccountNumber != "") { cout << "This AccountNumber is existed." << endl; }
+			if (AccountNumber == "") { cout << "This AccountNumber is empty, please enter value." << endl; }
+		} while (state);
+		return AccountNumber;
+	}
+	static string ReadAccountNumber(string Message = "ENTER YOUR AccountNumber: ") {
 		string AccountNumber = "";
 		bool state = false;
 		do {
 			AccountNumber = clsUtil::ReadString(Message);
 			state = (clsBankClient::IsClientExist(AccountNumber)) || AccountNumber == "";
-			if (state && AccountNumber != "" && IsEixsted) { cout << "This AccountNumber is existed." << endl; }
+			if (state && AccountNumber != "") { cout << "This AccountNumber is existed." << endl; }
 			if (AccountNumber == "") { cout << "This AccountNumber is empty, please enter value." << endl; }
-		} while (state && IsEixsted);
+		} while (state);
 		return AccountNumber;
 	}
+
 	clsBankClient(string Message) : clsPerson("", "", "", "") {
 		*this = GetAddNewClientObject(ReadAccountNumber(Message));
 	}
@@ -233,7 +245,7 @@ public:
 		{
 			if (C.AccountNumber == _AccountNumber) {
 				C._MarkedForDelete = true;
- 				break;
+				break;
 			}
 		}
 		_SaveCleintsDataToFile(_vClients);
@@ -299,6 +311,16 @@ public:
 	{
 		return clsBankClient(enMode::AddNewMode, "", "", "", "", AccountNumber, "", 0);
 	}
+	void Deposit(double Amount)
+	{
+		_AccountBalance += Amount;
+		Save();
+	}
 
+	void Withdraw(double Amount)
+	{
+		_AccountBalance -= Amount;
+		Save();
+	}
 
 };

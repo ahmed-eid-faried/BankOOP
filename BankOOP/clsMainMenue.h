@@ -24,14 +24,6 @@ private:
 		eMangeUsers = 7,
 		eExiting = 8,
 	};
-	static void BackToMainMenue() {
-		cout << "Press any key to go back to Main Menu...";
-		cin.ignore(); // Clear the input buffer
-		cin.get();    // Wait for a key press
-		system("cls"); // Clear the screen
-		//system("pause>0");
-		ShowMainMenue();
-	}
 	static void _Exiting() {
 		cout << "Exiting the CLI" << endl;
 		cout << "====================================================" << endl;
@@ -95,12 +87,16 @@ private:
 			system("cls");
 			_Transactions();
 			//checkPermission(enPermissions::PERMISSION_Transactions) ? _Transactions() : DeniedPermissions();
-			BackToMainMenue();
+			//BackToMainMenue();
+			system("cls");
+			ShowMainMenue();
 		case enMainMenueOptions::eMangeUsers:
 			system("cls");
 			_MangeUsers();
 			//checkPermission(enPermissions::PERMISSION_MangeUsers) ? _MangeUsers() : DeniedPermissions();
-			BackToMainMenue();
+			//BackToMainMenue();
+			system("cls");
+			ShowMainMenue();
 		case enMainMenueOptions::eExiting:
 			system("cls");
 			_LoginScreen();
@@ -110,6 +106,15 @@ private:
 		}
 	}
 public:
+	static void BackToMainMenue() {
+		cout << "Press any key to go back to Main Menu...";
+		cin.ignore(); // Clear the input buffer
+		cin.get();    // Wait for a key press
+		system("cls"); // Clear the screen
+		//system("pause>0");
+		ShowMainMenue();
+	}
+
 	static void ShowMainMenue() {
 		_DrawScreenHeader("Main Menue Screen");
 		cout << "\t\t\t\t\t   [1] Show Client List." << endl;
@@ -121,7 +126,7 @@ public:
 		cout << "\t\t\t\t\t   [7] Mange Users Menue." << endl;
 		cout << "\t\t\t\t\t   [8] Logout." << endl;
 		cout << "\t\t\t\t====================================================" << endl;
-		enMainMenueOptions Option = (enMainMenueOptions)clsUtil::ReadNumberInRange(1, 8, "Choose what do you want to do? [1 to 8]? ");
+		enMainMenueOptions Option = (enMainMenueOptions)clsUtil::ReadNumberInRange(1, 8, "\t\t\t\tChoose what do you want to do? ");
 		_Routing(Option);
 	}
 };
