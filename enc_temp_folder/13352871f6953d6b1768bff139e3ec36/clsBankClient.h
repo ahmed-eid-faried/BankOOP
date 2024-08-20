@@ -232,13 +232,14 @@ public:
 		vector <clsBankClient> _vClients = _LoadClientsDataFromFile();
 		for (clsBankClient& C : _vClients)
 		{
-			if (C.AccountNumber == _AccountNumber) {
+			if (C.AccountNumber == AccountNumber) {
 				C._MarkedForDelete = true;
- 				break;
+				*this = _GetEmptyClientObject();
+				_Mode=enMode::UpdateMode;
+				break;
 			}
 		}
 		_SaveCleintsDataToFile(_vClients);
-		*this = _GetEmptyClientObject();
 		return true;
 	}
 

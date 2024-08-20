@@ -11,8 +11,9 @@ using namespace std;
 class clsDeleteClientScreen : protected clsScreen {
 
 private:
-	static void _ShowResultDelete(string AccountNumber, bool state) {
-		if (state) {
+	static void _ShowResultDelete(string AccountNumber) {
+		if (clsBankClient::IsClientExist(AccountNumber)) {
+			cout << "You have successfully deleted the user." << endl;
 			cout << AccountNumber << " is deleted." << endl;
 		}
 		else {
@@ -23,9 +24,10 @@ private:
 public:
 	static void DeleteClient() {
 		_DrawScreenHeader("Delete Client Screen");
-		string AccountNumber = clsBankClient::ReadAccountNumber("\nPlease enter AccountNumber? ");
+		string AccountNumber = clsBankClient::ReadAccountNumber("\nPlease enter AccountNumber? ", false);
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
-		_ShowResultDelete(AccountNumber, Client.Delete());
-
+		Client.Delete();
+		_ShowResultDelete(AccountNumber);
+		Client.Save();
 	}
 };
