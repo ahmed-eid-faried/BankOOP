@@ -15,6 +15,7 @@ private:
 		Client.LastName = clsUtil::ReadString("ENTER YOUR LastName: ");
 		Client.Phone = clsUtil::ReadString("ENTER YOUR Phone: ");
 		Client.AccountBalance = clsUtil::ReadDoubleNumber("ENTER YOUR AccountBalance: ");
+		Client.Update();
 		return Client;
 	};
 

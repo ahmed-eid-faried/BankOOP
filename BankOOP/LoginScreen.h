@@ -6,7 +6,7 @@
 #include<iomanip>
 #include "clsScreen.h"
 #include "clsBankClient.h"
-class clsLoginScreenScreen :protected clsScreen {
+class clsLoginScreen  :protected clsScreen {
 private:
 public:
 	static void LoginScreen() {

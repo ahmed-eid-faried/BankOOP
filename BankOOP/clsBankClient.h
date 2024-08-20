@@ -94,7 +94,7 @@ private:
 	{
 		vector <clsBankClient> _vClients;
 		_vClients = _LoadClientsDataFromFile();
-		for (clsBankClient C : _vClients)
+		for (clsBankClient& C : _vClients)
 		{
 			if (C.AccountNumber == AccountNumber) {
 				C = *this;
@@ -259,7 +259,9 @@ public:
 		}
 		return TotalBalances;
 	}
-
+	void Update() {
+		_Mode = enMode::UpdateMode;
+	}
 	enSaveResults Save()
 	{
 

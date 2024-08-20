@@ -28,6 +28,6 @@ public:
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
 		Client.Delete();
 		_ShowResultDelete(AccountNumber);
-		//Client.Save();
+		Client.Save();
 	}
 };
