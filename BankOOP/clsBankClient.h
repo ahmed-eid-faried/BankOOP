@@ -3,6 +3,7 @@
 #include <string>
 #include "clsPerson.h"
 #include "clsString.h"
+#include "clsUtil.h"
 #include <vector>
 #include <fstream>
 using namespace std;
@@ -112,15 +113,21 @@ private:
 	}
 
 public:
-
-	clsBankClient(string AccountNumber) : clsPerson("", "", "", "") {
-		if (IsClientExist(AccountNumber)) {
-			cout << "This AccountNumber is existed." << endl;
-		}
-		else {
-			*this = GetAddNewClientObject(AccountNumber);
-		}
+	static string ReadAccountNumber(string Message = "ENTER YOUR AccountNumber: ") {
+		string AccountNumber = "";
+		bool state = false;
+		do {
+			AccountNumber = clsUtil::ReadString(Message);
+			state = (clsBankClient::IsClientExist(AccountNumber)) || AccountNumber == "";
+			if (state && AccountNumber != "") { cout << "This AccountNumber is existed." << endl; }
+			if (AccountNumber == "") { cout << "This AccountNumber is empty, please enter value." << endl; }
+		} while (state);
+		return AccountNumber;
 	}
+	clsBankClient(string Message) : clsPerson("", "", "", "") {
+		*this = GetAddNewClientObject(ReadAccountNumber(Message));
+	}
+
 	clsBankClient(enMode Mode, string FirstName, string LastName,
 		string Email, string Phone, string AccountNumber, string PinCode,
 		float AccountBalance) :

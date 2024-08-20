@@ -133,6 +133,7 @@
     <ClInclude Include="AddNewClient.h" />
     <ClInclude Include="clsBankClient.h" />
     <ClInclude Include="clsDate.h" />
+    <ClInclude Include="clsDeleteClient.h" />
     <ClInclude Include="clsInputValidate.h" />
     <ClInclude Include="clsMainMenu.h" />
     <ClInclude Include="clsPerson.h" />

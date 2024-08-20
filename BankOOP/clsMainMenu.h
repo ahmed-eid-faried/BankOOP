@@ -4,6 +4,7 @@
 #include "clsScreen.h"
 #include "ShowClients.h"
 #include "AddNewClient.h"
+#include "clsDeleteClient.h"
 using namespace std;
 class clsMainMenueScreen :protected clsScreen {
 private:
@@ -39,7 +40,9 @@ private:
 	static void _AddNewClient() {
 		clsAddNewClientScreen::AddNewClient();
 	}
-	static void _DeleteClient() {}
+	static void _DeleteClient() {
+		clsDeleteClientScreen::DeleteClient();
+	}
 	static void _UpdateClientInfo() {}
 	static void _FindClient() {}
 	static void _Transactions() {}
