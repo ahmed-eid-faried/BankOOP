@@ -140,9 +140,14 @@
     <ClInclude Include="clsScreen.h" />
     <ClInclude Include="clsString.h" />
     <ClInclude Include="clsUtil.h" />
+    <ClInclude Include="FindClient.h" />
+    <ClInclude Include="LoginScreen.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="MangeUsers.h" />
     <ClInclude Include="pre.h" />
     <ClInclude Include="ShowClients.h" />
+    <ClInclude Include="Transactions.h" />
+    <ClInclude Include="UpdateClient.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,11 +5,6 @@
 #include "ShowClients.h"
 #include "AddNewClient.h"
 #include "clsDeleteClient.h"
-#include "UpdateClient.h"
-#include "FindClient.h"
-#include "Transactions.h"
-#include "MangeUsers.h"
-#include "LoginScreen.h"
 using namespace std;
 class clsMainMenueScreen :protected clsScreen {
 private:
@@ -48,21 +43,11 @@ private:
 	static void _DeleteClient() {
 		clsDeleteClientScreen::DeleteClient();
 	}
-	static void _UpdateClientInfo() {
-		clsUpdateClientScreen::UpdateClient();
-	}
-	static void _FindClient() {
-		clsFindClientScreen::FindClient();
-	}
-	static void _Transactions() {
-		clsTransactionsScreen::Transactions();
-	}
-	static void _MangeUsers() {
-		clsMangeUsersScreen::MangeUsers();
-	}
-	static void _LoginScreen() {
-		clsLoginScreen::LoginScreen();
-	}
+	static void _UpdateClientInfo() {}
+	static void _FindClient() {}
+	static void _Transactions() {}
+	static void _MangeUsers() {}
+	static void _LoginScreen() {}
 	static void _Routing(enMainMenueOptions Option) {
 		switch (Option)
 		{

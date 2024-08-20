@@ -223,8 +223,7 @@ public:
 
 	static bool IsClientExist(string AccountNumber)
 	{
-		clsBankClient Client = Find(AccountNumber);
-		return !Client.IsEmpty();
+		return !(Find(AccountNumber).IsEmpty());
 	}
 
 	bool Delete()
