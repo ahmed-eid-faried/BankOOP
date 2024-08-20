@@ -36,15 +36,17 @@ public:
 	void SetPhone(string Phone) { _Phone = Phone; };
 	__declspec(property(get = GetPhone, put = SetPhone))string Phone;
 
-	string FullName() {
+	string GetFullName() {
 		return _FirstName + " " + _LastName;
 	}
+	__declspec(property(get = GetFullName))string FullName;
+
 	void Print() {
 		cout << "\nInfo:";
 		cout << "\n___________________";
 		cout << "\nFirstName: " << _FirstName;
 		cout << "\nLastName : " << _LastName;
-		cout << "\nFull Name: " << FullName();
+		cout << "\nFull Name: " << FullName;
 		cout << "\nEmail    : " << _Email;
 		cout << "\nPhone    : " << _Phone;
 		cout << "\n___________________\n";

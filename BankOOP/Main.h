@@ -11,7 +11,7 @@ void PrintClientRecordBalanceLine(clsBankClient Client)
 {
 
     cout << "| " << setw(15) << left << Client.AccountNumber;
-    cout << "| " << setw(40) << left << Client.FullName();
+    cout << "| " << setw(40) << left << Client.FullName;
     cout << "| " << setw(12) << left << Client.AccountBalance;
 
 }

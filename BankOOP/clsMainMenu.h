@@ -2,6 +2,7 @@
 #include "clsScreen.h"
 #include <string>
 #include "pre.h"
+#include "ShowClients.h"
 using namespace std;
 class clsMainMenueScreen :protected clsScreen {
 private:
@@ -24,14 +25,16 @@ private:
 		//system("pause>0");
 		ShowMainMenue();
 	}
-	static void Exiting() {
+	static void _Exiting() {
 		cout << "Exiting the CLI" << endl;
 		cout << "====================================================" << endl;
 		cout << "\t\tEND PROGRAM:(\n";
 		cout << "====================================================" << endl;
 		exit(0);
 	}
-	static void _ShowClients() {}
+	static void _ShowClients() {
+		clsShowClients::ShowClients();
+	}
 	static void _AddNewClient() {}
 	static void _DeleteClient() {}
 	static void _UpdateClientInfo() {}
@@ -44,7 +47,8 @@ private:
 		{
 		case enMainMenueOptions::eShowClients:
 			system("cls");
-			checkPermission(enPermissions::PERMISSION_ListUsers) ? _ShowClients() : DeniedPermissions();
+			_ShowClients();
+			//checkPermission(enPermissions::PERMISSION_ListUsers) ? _ShowClients() : DeniedPermissions();
 			BackToMainMenue();
 		case enMainMenueOptions::eAddNewClient:
 			system("cls");

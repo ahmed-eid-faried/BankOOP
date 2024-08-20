@@ -59,8 +59,8 @@
     <ClInclude Include="pre.h">
       <Filter>Header Files\login</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Clients.txt" />
+    <ClInclude Include="ShowClients.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
