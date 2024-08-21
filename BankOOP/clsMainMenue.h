@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include "pre.h"
 #include "clsScreen.h"
 #include "ShowClients.h"
 #include "AddNewClient.h"
@@ -13,7 +12,7 @@
 #include "LoginScreen.h"
 using namespace std;
 static void LoginScreen();
- class clsMainMenueScreen :protected clsScreen {
+class clsMainMenueScreen :protected clsScreen {
 private:
 	enum enMainMenueOptions {
 		eShowClients = 1,
@@ -100,7 +99,7 @@ private:
 	}
 public:
 	static void BackToMainMenue() {
-		cout << "Press any key to go back to Main Menu...";
+		cout << "\t\t\t\tPress any key to go back to Main Menu...";
 		cin.ignore(); // Clear the input buffer
 		cin.get();    // Wait for a key press
 		system("cls"); // Clear the screen

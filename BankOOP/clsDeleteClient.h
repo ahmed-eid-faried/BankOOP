@@ -13,18 +13,18 @@ class clsDeleteClientScreen : protected clsScreen {
 private:
 	static void _ShowResultDelete(string AccountNumber) {
 		if (!clsBankClient::IsClientExist(AccountNumber)) {
-			cout << "You have successfully deleted the user." << endl;
-			cout << AccountNumber << " is deleted." << endl;
+			cout << "\t\t\t\tYou have successfully deleted the user." << endl;
+			cout << "\t\t\t\t"<<AccountNumber << " is deleted." << endl;
 		}
 		else {
-			cout << "it failed to delete " << AccountNumber << endl;
+			cout << "\t\t\t\tit failed to delete " << AccountNumber << endl;
 		}
 	}
 
 public:
 	static void DeleteClient() {
 		_DrawScreenHeader("Delete Client Screen");
-		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\nPlease enter AccountNumber? ");;
+		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\n\t\t\t\tPlease enter AccountNumber? ");;
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
 		Client.Delete();
 		_ShowResultDelete(AccountNumber);

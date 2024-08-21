@@ -37,7 +37,7 @@ public:
 	}
 	static bool ReadBool(string Message) {
 		char AddMore = 'Y';
-		cout << Message << " Y/N? " << endl;
+		cout << Message << " Y/N? ";
 		cin >> AddMore;
 		return (toupper(AddMore) == 'Y');
 	}

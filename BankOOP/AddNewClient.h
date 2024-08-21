@@ -6,12 +6,12 @@ using namespace std;
 class clsAddNewClientScreen :protected clsScreen {
 private:
 	static clsBankClient _ReadNewClient() {
-		clsBankClient Client("ENTER YOUR AccountNumber: ");
-		Client.PinCode = clsUtil::ReadString("ENTER YOUR PinCode: ");
-		Client.FirstName = clsUtil::ReadString("ENTER YOUR FirstName: ");
-		Client.LastName = clsUtil::ReadString("ENTER YOUR LastName: ");
-		Client.Phone = clsUtil::ReadString("ENTER YOUR Phone: ");
-		Client.AccountBalance = clsUtil::ReadDoubleNumber("ENTER YOUR AccountBalance: ");
+		clsBankClient Client("\t\t\t\tENTER YOUR AccountNumber: ");
+		Client.PinCode = clsUtil::ReadString("\t\t\t\tENTER YOUR PinCode: ");
+		Client.FirstName = clsUtil::ReadString("\t\t\t\tENTER YOUR FirstName: ");
+		Client.LastName = clsUtil::ReadString("\t\t\t\tENTER YOUR LastName: ");
+		Client.Phone = clsUtil::ReadString("\t\t\t\tENTER YOUR Phone: ");
+		Client.AccountBalance = clsUtil::ReadDoubleNumber("\t\t\t\tENTER YOUR AccountBalance: ");
 		return Client;
 	};
 
@@ -20,12 +20,12 @@ public:
 		do {
 			system("cls");
 			_DrawScreenHeader("Add New Client");
-			cout << "\n\nPlease Enter Client Data:  " << endl;
-			cout << "===========================" << endl;
+			cout << "\n\n\t\t\t\tPlease Enter Client Data:  " << endl;
+			cout << "\t\t\t\t===========================" << endl;
 			clsBankClient Client = _ReadNewClient();
-			cout << "\n\nClient Record for Saving is: \n";
+			cout << "\n\n\t\t\t\tClient Record for Saving is: \n";
 			Client.Save();
-		} while (clsUtil::ReadBool("\nClient Added Successfully, do you want to add more clients? "));
+		} while (clsUtil::ReadBool("\n\t\t\t\tClient Added Successfully, do you want to add more clients? "));
 	}
 
 };

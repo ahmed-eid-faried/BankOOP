@@ -10,11 +10,11 @@ class clsUpdateClientScreen :protected clsScreen {
 private:
 
 	static	clsBankClient _ReadUpdateClient(clsBankClient Client) {
-		Client.PinCode = clsUtil::ReadString("ENTER YOUR PinCode: ");
-		Client.FirstName = clsUtil::ReadString("ENTER YOUR FirstName: ");
-		Client.LastName = clsUtil::ReadString("ENTER YOUR LastName: ");
-		Client.Phone = clsUtil::ReadString("ENTER YOUR Phone: ");
-		Client.AccountBalance = clsUtil::ReadDoubleNumber("ENTER YOUR AccountBalance: ");
+		Client.PinCode = clsUtil::ReadString("\t\t\t\tENTER YOUR PinCode: ");
+		Client.FirstName = clsUtil::ReadString("\t\t\t\tENTER YOUR FirstName: ");
+		Client.LastName = clsUtil::ReadString("\t\t\t\tENTER YOUR LastName: ");
+		Client.Phone = clsUtil::ReadString("\t\t\t\tENTER YOUR Phone: ");
+		Client.AccountBalance = clsUtil::ReadDoubleNumber("\t\t\t\tENTER YOUR AccountBalance: ");
 		Client.Update();
 		return Client;
 	};
@@ -22,7 +22,7 @@ private:
 public:
 	static void UpdateClient() {
 		_DrawScreenHeader("Update Client");
-		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\nPlease enter AccountNumber? ");;
+		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\n\t\t\t\tPlease enter AccountNumber? ");;
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
 		Client = _ReadUpdateClient(Client);
 		Client.Save();

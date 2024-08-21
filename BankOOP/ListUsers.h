@@ -14,7 +14,7 @@ private:
 		cout << "\t\t";
 		cout << "| " << left << setw(15) << "User Name";
 		cout << "| " << left << setw(10) << "Password";
-		cout << "| " << left << setw(40) << "Full Name";
+		cout << "| " << left << setw(30) << "Full Name";
 		cout << "| " << left << setw(12) << "Phone";
 		cout << "| " << left << setw(12) << "Permissions";
 		cout << "\n\t\t_______________________________________________________";
@@ -24,7 +24,7 @@ private:
 		cout << "\t\t";
 		cout << "| " << setw(15) << left << User.UserName;
 		cout << "| " << setw(10) << left << User.Password;
-		cout << "| " << setw(40) << left << User.FullName;
+		cout << "| " << setw(30) << left << User.FullName;
 		cout << "| " << setw(12) << left << User.Phone;
 		cout << "| " << setw(12) << left << User.Permissions;
 	};

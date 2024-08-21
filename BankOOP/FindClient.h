@@ -11,7 +11,7 @@ private:
 
 	static void _ShowResult(string AccountNumber, clsBankClient Client) {
 		if (Client.IsEmpty()) {
-			cout << "\nClient with Account Number (" << AccountNumber << ") is Not Found!" << endl;
+			cout << "\n\t\t\t\tClient with Account Number (" << AccountNumber << ") is Not Found!" << endl;
 		}
 		else {
 			Client.Print();
@@ -20,7 +20,7 @@ private:
 public:
 	static void FindClient() {
 		_DrawScreenHeader("Find Client");
-		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\nPlease enter AccountNumber? ");;
+		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\n\t\t\t\tPlease enter AccountNumber? ");;
 		clsBankClient Client = clsBankClient::Find(AccountNumber);
 		_ShowResult(AccountNumber, Client);
 	}

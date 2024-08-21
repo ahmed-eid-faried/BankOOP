@@ -48,7 +48,7 @@ private:
 		fstream MyFile;
 		string Line;
 		vector <clsUser> Clients;
-		MyFile.open(ClientPathFile, ios::in);//read mode
+		MyFile.open(UsersPathFile, ios::in);//read mode
 		if (MyFile.is_open()) {
 			while (getline(MyFile, Line))
 			{
@@ -62,7 +62,7 @@ private:
 	static void _SaveCleintsDataToFile(vector <clsUser> vClients)
 	{
 		fstream MyFile;
-		MyFile.open(ClientPathFile, ios::out);//write mode
+		MyFile.open(UsersPathFile, ios::out);//write mode
 		if (MyFile.is_open()) {
 			string DataLine;
 			for (clsUser C : vClients)
@@ -80,7 +80,7 @@ private:
 	void _AddDataLineToFile(clsUser  Client)
 	{
 		fstream MyFile;
-		MyFile.open(ClientPathFile, ios::out | ios::app);//append mode or create mode
+		MyFile.open(UsersPathFile, ios::out | ios::app);//append mode or create mode
 		if (MyFile.is_open()) {
 			string   DataLine = _ConverClientObjectToLine(Client);
 			MyFile << DataLine << endl;
@@ -112,25 +112,25 @@ private:
 public:
 	//static clsUser CurrentUser ;
 
-	static string ReadUserNameEixsted(string Message = "ENTER YOUR UserName: ") {
+	static string ReadUserNameEixsted(string Message = "\t\t\t\tENTER YOUR UserName: ") {
 		string UserName = "";
 		bool state = false;
 		do {
 			UserName = clsUtil::ReadString(Message);
 			state = (Find(UserName).IsEmpty()) || UserName == "";
-			if (state && UserName != "") { cout << "This UserName is existed." << endl; }
-			if (UserName == "") { cout << "This UserName is empty, please enter value." << endl; }
+			if (state && UserName != "") { cout << "\t\t\t\tThis UserName is existed." << endl; }
+			if (UserName == "") { cout << "\t\t\t\tThis UserName is empty, please enter value." << endl; }
 		} while (state);
 		return UserName;
 	}
-	static string ReadUserName(string Message = "ENTER YOUR UserName: ") {
+	static string ReadUserName(string Message = "\t\t\t\tENTER YOUR UserName: ") {
 		string UserName = "";
 		bool state = false;
 		do {
 			UserName = clsUtil::ReadString(Message);
 			state = (clsUser::IsClientExist(UserName)) || UserName == "";
-			if (state && UserName != "") { cout << "This UserName is existed." << endl; }
-			if (UserName == "") { cout << "This UserName is empty, please enter value." << endl; }
+			if (state && UserName != "") { cout << "\t\t\t\tThis UserName is existed." << endl; }
+			if (UserName == "") { cout << "\t\t\t\tThis UserName is empty, please enter value." << endl; }
 		} while (state);
 		return UserName;
 	}
@@ -180,17 +180,17 @@ public:
 
 	void Print()
 	{
-		cout << "\nClient Card:";
-		cout << "\n___________________";
-		cout << "\nFirstName   : " << FirstName;
-		cout << "\nLastName    : " << LastName;
-		cout << "\nFull Name   : " << FullName;
-		cout << "\nEmail       : " << Email;
-		cout << "\nPhone       : " << Phone;
-		cout << "\nUserName    : " << _UserName;
-		cout << "\nPassword    : " << _Password;
-		cout << "\nPermissions : " << _Permissions;
-		cout << "\n___________________\n";
+		cout << "\n\t\t\t\tClient Card:";
+		cout << "\n\t\t\t\t___________________";
+		cout << "\n\t\t\t\tFirstName   : " << FirstName;
+		cout << "\n\t\t\t\tLastName    : " << LastName;
+		cout << "\n\t\t\t\tFull Name   : " << FullName;
+		cout << "\n\t\t\t\tEmail       : " << Email;
+		cout << "\n\t\t\t\tPhone       : " << Phone;
+		cout << "\n\t\t\t\tUserName    : " << _UserName;
+		cout << "\n\t\t\t\tPassword    : " << _Password;
+		cout << "\n\t\t\t\tPermissions : " << _Permissions;
+		cout << "\n\t\t\t\t___________________\n";
 
 	}
 
@@ -208,7 +208,7 @@ public:
 		/////////////////////////////////
 		fstream MyFile;
 		string Line;
-		MyFile.open(ClientPathFile, ios::in);//read mode
+		MyFile.open(UsersPathFile, ios::in);//read mode
 		if (MyFile.is_open()) {
 			while (getline(MyFile, Line))
 			{
@@ -321,7 +321,7 @@ public:
 
 	static int ReadPermissions() {
 		sPermissions Permissions;
-		bool AllPermissions = clsUtil::ReadBool("ARE YOU GIVE All Permissions FOR This USER?");
+		bool AllPermissions = clsUtil::ReadBool("\t\t\t\tARE YOU GIVE All Permissions FOR This USER?");
 		if (AllPermissions) {
 			Permissions.ListUsers = enPermissions::PERMISSION_AllPermissions;
 			Permissions.Add = enPermissions(0);
@@ -333,13 +333,13 @@ public:
 		}
 		else
 		{
-			Permissions.ListUsers = clsUtil::ReadBool("ARE YOU Permission FOR Show USER?") ? enPermissions::PERMISSION_ListUsers : enPermissions(0);
-			Permissions.Add = clsUtil::ReadBool("ARE YOU Permission FOR Add USER?") ? enPermissions::PERMISSION_Add : enPermissions(0);
-			Permissions.Delete = clsUtil::ReadBool("ARE YOU Permission FOR Delete USER?") ? enPermissions::PERMISSION_Delete : enPermissions(0);
-			Permissions.Update = clsUtil::ReadBool("ARE YOU Permission FOR Update USER?") ? enPermissions::PERMISSION_Update : enPermissions(0);
-			Permissions.FIND = clsUtil::ReadBool("ARE YOU Permission FOR Find USER?") ? enPermissions::PERMISSION_Find : enPermissions(0);
-			Permissions.Transactions = clsUtil::ReadBool("ARE YOU Permission FOR Transactions?") ? enPermissions::PERMISSION_Transactions : enPermissions(0);
-			Permissions.MangeUsers = clsUtil::ReadBool("ARE YOU Permission FOR MangeUsers?") ? enPermissions::PERMISSION_MangeUsers : enPermissions(0);
+			Permissions.ListUsers = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Show USER?") ? enPermissions::PERMISSION_ListUsers : enPermissions(0);
+			Permissions.Add = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Add USER?") ? enPermissions::PERMISSION_Add : enPermissions(0);
+			Permissions.Delete = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Delete USER?") ? enPermissions::PERMISSION_Delete : enPermissions(0);
+			Permissions.Update = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Update USER?") ? enPermissions::PERMISSION_Update : enPermissions(0);
+			Permissions.FIND = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Find USER?") ? enPermissions::PERMISSION_Find : enPermissions(0);
+			Permissions.Transactions = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Transactions?") ? enPermissions::PERMISSION_Transactions : enPermissions(0);
+			Permissions.MangeUsers = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR MangeUsers?") ? enPermissions::PERMISSION_MangeUsers : enPermissions(0);
 
 		}
 		return setPermissions(Permissions);

@@ -20,7 +20,7 @@ private:
 	};
 
 	static void _BackToTransactionsMenue() {
-		cout << "Press any key to go back to Main Menu...";
+		cout << "\t\t\t\tPress any key to go back to Main Menu...";
 		cin.ignore(); // Clear the input buffer
 		cin.get();    // Wait for a key press
 		system("cls");     // Clear the screen
@@ -46,8 +46,7 @@ private:
 			break;
 		case enTransactionsMenueOptions::eMainMenue:
 			system("cls");
-			//clsMainMenueScreen::ShowMainMenue();  
-			break;
+ 			break;
 		default:
 			break;
 		}

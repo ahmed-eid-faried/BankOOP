@@ -151,7 +151,6 @@
     <ClInclude Include="LoginScreen.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MangeUsers.h" />
-    <ClInclude Include="pre.h" />
     <ClInclude Include="ShowClients.h" />
     <ClInclude Include="TotalBalances.h" />
     <ClInclude Include="Transactions.h" />

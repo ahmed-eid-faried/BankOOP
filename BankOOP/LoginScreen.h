@@ -21,9 +21,9 @@ public:
 			system("cls");
 			CurrentUser = clsUser::Find("", "");
 			_DrawScreenHeader("Login");
-			if (Invalid) { cout << "\nUser Name Or Password is Not Correct!" << endl << endl; }
-			string Name = clsUtil::ReadString("Enter your Name    : ");
-			string Password = clsUtil::ReadString("Enter your Password: ");
+			if (Invalid) { cout << "\n\t\t\t\tUser Name Or Password is Not Correct!" << endl << endl; }
+			string Name = clsUtil::ReadString("\t\t\t\tEnter your Name    : ");
+			string Password = clsUtil::ReadString("\t\t\t\tEnter your Password: ");
 			clsUser User = clsUser::Find(Name, Password);
 			if (!User.IsEmpty()) {
 				IsFinsh = true;

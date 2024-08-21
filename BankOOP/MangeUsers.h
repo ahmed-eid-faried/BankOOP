@@ -23,7 +23,7 @@ private:
 		enMainMenue = 6,
 	};
 	static	void _BackToMangeUsersMenue() {
-		cout << "Press any key to go back to Main Menu...";
+		cout << "\t\t\t\tPress any key to go back to Main Menu...";
 		cin.ignore(); // Clear the input buffer
 		cin.get();    // Wait for a key press
 		system("cls"); // Clear the screen
@@ -36,7 +36,7 @@ private:
 		{
 		case enMangeUsersMenueOptions::eListUsers:
 			system("cls");
-			clsListUsersScreen::ListUsers();
+			clsListUsers::ListUsers();
 			_BackToMangeUsersMenue();
 		case enMangeUsersMenueOptions::eAddNewUser:
 			system("cls");
@@ -56,8 +56,9 @@ private:
 			_BackToMangeUsersMenue();
 		case enMangeUsersMenueOptions::enMainMenue:
 			system("cls");
-			//ShowMainMenue();
-		default:
+			break;
+
+ 		default:
 			break;
 		}
 	}

@@ -62,9 +62,6 @@
     <ClInclude Include="clsScreen.h">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
-    <ClInclude Include="pre.h">
-      <Filter>Header Files\login</Filter>
-    </ClInclude>
     <ClInclude Include="ShowClients.h">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
@@ -84,9 +81,6 @@
       <Filter>Header Files\ui</Filter>
     </ClInclude>
     <ClInclude Include="MangeUsers.h">
-      <Filter>Header Files\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginScreen.h">
       <Filter>Header Files\ui</Filter>
     </ClInclude>
     <ClInclude Include="Deposit.h">
@@ -118,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginScreen.h">
+      <Filter>Header Files\login</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

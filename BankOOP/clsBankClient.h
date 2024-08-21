@@ -111,25 +111,25 @@ private:
 	}
 
 public:
-	static string ReadAccountNumberEixsted(string Message = "ENTER YOUR AccountNumber: ") {
+	static string ReadAccountNumberEixsted(string Message = "\t\t\t\tENTER YOUR AccountNumber: ") {
 		string AccountNumber = "";
 		bool state = false;
 		do {
 			AccountNumber = clsUtil::ReadString(Message);
 			state = (Find(AccountNumber).IsEmpty()) || AccountNumber == "";
-			if (state && AccountNumber != "") { cout << "This AccountNumber is existed." << endl; }
-			if (AccountNumber == "") { cout << "This AccountNumber is empty, please enter value." << endl; }
+			if (state && AccountNumber != "") { cout << "\t\t\t\tThis AccountNumber is NOT existed." << endl; }
+			if (AccountNumber == "") { cout << "\t\t\t\tThis AccountNumber is empty, please enter value." << endl; }
 		} while (state);
 		return AccountNumber;
 	}
-	static string ReadAccountNumber(string Message = "ENTER YOUR AccountNumber: ") {
+	static string ReadAccountNumber(string Message = "\t\t\t\tENTER YOUR AccountNumber: ") {
 		string AccountNumber = "";
 		bool state = false;
 		do {
 			AccountNumber = clsUtil::ReadString(Message);
 			state = (clsBankClient::IsClientExist(AccountNumber)) || AccountNumber == "";
-			if (state && AccountNumber != "") { cout << "This AccountNumber is existed." << endl; }
-			if (AccountNumber == "") { cout << "This AccountNumber is empty, please enter value." << endl; }
+			if (state && AccountNumber != "") { cout << "\t\t\t\tThis AccountNumber is existed." << endl; }
+			if (AccountNumber == "") { cout << "\t\t\t\tThis AccountNumber is empty, please enter value." << endl; }
 		} while (state);
 		return AccountNumber;
 	}
@@ -180,17 +180,17 @@ public:
 
 	void Print()
 	{
-		cout << "\nClient Card:";
-		cout << "\n___________________";
-		cout << "\nFirstName   : " << FirstName;
-		cout << "\nLastName    : " << LastName;
-		cout << "\nFull Name   : " << FullName;
-		cout << "\nEmail       : " << Email;
-		cout << "\nPhone       : " << Phone;
-		cout << "\nAcc. Number : " << _AccountNumber;
-		cout << "\nPassword    : " << _PinCode;
-		cout << "\nBalance     : " << _AccountBalance;
-		cout << "\n___________________\n";
+		cout << "\n\t\t\t\tClient Card:";
+		cout << "\n\t\t\t\t___________________";
+		cout << "\n\t\t\t\tFirstName   : " << FirstName;
+		cout << "\n\t\t\t\tLastName    : " << LastName;
+		cout << "\n\t\t\t\tFull Name   : " << FullName;
+		cout << "\n\t\t\t\tEmail       : " << Email;
+		cout << "\n\t\t\t\tPhone       : " << Phone;
+		cout << "\n\t\t\t\tAcc. Number : " << _AccountNumber;
+		cout << "\n\t\t\t\tPassword    : " << _PinCode;
+		cout << "\n\t\t\t\tBalance     : " << _AccountBalance;
+		cout << "\n\t\t\t\t___________________\n";
 
 	}
 
