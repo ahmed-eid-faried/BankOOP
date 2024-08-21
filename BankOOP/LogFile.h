@@ -27,7 +27,7 @@ private:
 	static clsLogFile _ConvertLinetoClientObject(string Line, string Seperator = Seperator)
 	{
 		vector <string> strClient = clsString::Split(Line, Seperator);
-		return clsLogFile(enMode::UpdateMode, strClient[0], strClient[1], strClient[2], stod(strClient[4]));
+		return clsLogFile(enMode::UpdateMode, strClient[0], strClient[1], strClient[2], stod(strClient[3]));
 	}
 	static string _ConverClientObjectToLine(clsLogFile Client, string Seperator = Seperator)
 	{

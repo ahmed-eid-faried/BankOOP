@@ -51,10 +51,13 @@ private:
 	static void _Transactions() {
 		clsTransactionsScreen::Transactions();
 	}
+
 	static void _MangeUsers() {
 		clsMangeUsersScreen::MangeUsers();
 	}
-
+	static void _ShowLog() {
+		LogFileRigesterScreen::ShowLogs();
+	}
 	static void _LoginScreen() {
 		//callstak
 		// clsLoginScreen::LoginScreen();
@@ -94,7 +97,7 @@ private:
 			ShowMainMenue();
 		case enMainMenueOptions::eLogFile:
 			system("cls");
-			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Update)) { LogFileRigesterScreen::ShowLogs(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_ListUsers)) { _ShowLog(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eExiting:
 			system("cls");
