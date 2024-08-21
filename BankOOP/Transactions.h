@@ -8,6 +8,7 @@
 #include "Withdraw.h"
 #include "TotalBalances.h"
 #include "clsMainMenue.h"
+#include "transfer.h"
 using namespace std;
 
 class clsTransactionsScreen : protected clsScreen {
@@ -66,7 +67,7 @@ private:
 		cout << "\t\t\t\t\t   [4] Transfer." << endl;
 		cout << "\t\t\t\t\t   [5] Main Menue." << endl;
 		cout << "\t\t\t\t====================================================" << endl;
-		enTransactionsMenueOptions Option = (enTransactionsMenueOptions)clsUtil::ReadNumberInRange(1, 4, "\t\t\t\tChoose what do you want to do? ");
+		enTransactionsMenueOptions Option = (enTransactionsMenueOptions)clsUtil::ReadNumberInRange(1, 5, "\t\t\t\tChoose what do you want to do? ");
 		_RoutingTransactions(Option);
 	}
 

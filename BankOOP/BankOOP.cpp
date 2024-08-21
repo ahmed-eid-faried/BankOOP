@@ -4,10 +4,9 @@
   
 int main()
 {
-	clsTransferScreen::Transfer();
-	/*while (true)
+	while (true)
 	{
 		 clsLoginScreen::LoginScreen();
-	}*/
+	}
 	return 0;
 }

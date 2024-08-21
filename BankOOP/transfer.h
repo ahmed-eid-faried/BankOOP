@@ -10,18 +10,18 @@ class clsTransferScreen :protected clsScreen {
 private:
 	static void _ShowTransfer() {
 		_DrawScreenHeader("Transfer");
-		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\nPlease Enter Account Number to Transfer From:  ");;
-		string AccountNumber2 = clsBankClient::ReadAccountNumberEixsted("\nPlease Enter Account Number to Transfer To:  ");;
-		float TransferValue = clsUtil::ReadDoubleNumber("ENTER Transfer Amount? ");
+		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\n\t\t\t\tPlease Enter Account Number to Transfer From:  ");;
+		string AccountNumber2 = clsBankClient::ReadAccountNumberEixsted("\t\t\t\tPlease Enter Account Number to Transfer To:  ");;
+		float TransferValue = clsUtil::ReadDoubleNumber("\t\t\t\tENTER Transfer Amount? ");
 		clsBankClient ClientFrom = clsBankClient::Find(AccountNumber);
-		clsBankClient ClientTo = clsBankClient::Find(AccountNumber);
+		clsBankClient ClientTo = clsBankClient::Find(AccountNumber2);
 		ClientFrom.PrintClientCard();
 		ClientTo.PrintClientCard();
-		bool state = clsUtil::ReadBool("Are you sure want to perform this operation?");
+		bool state = clsUtil::ReadBool("\t\t\t\tAre you sure want to perform this operation?");
 		if (state) {
 			clsBankClient::Transfer(ClientFrom, ClientTo, TransferValue);
-			ClientFrom.PrintClientCard();
-			ClientTo.PrintClientCard();
+			clsBankClient::Find(AccountNumber).PrintClientCard();
+			clsBankClient::Find(AccountNumber2).PrintClientCard();
 		}
 	}
 
