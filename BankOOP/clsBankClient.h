@@ -10,7 +10,7 @@
 using namespace std;
 
 
- 
+
 class clsBankClient : public clsPerson
 {
 private:
@@ -193,7 +193,16 @@ public:
 		cout << "\n\t\t\t\t___________________\n";
 
 	}
+	void PrintClientCard()
+	{
+		cout << "\n\t\t\t\tClient Card:";
+		cout << "\n\t\t\t\t___________________"; 
+		cout << "\n\t\t\t\tFull Name   : " << FullName; 
+		cout << "\n\t\t\t\tPassword    : " << _PinCode;
+		cout << "\n\t\t\t\tBalance     : " << _AccountBalance;
+		cout << "\n\t\t\t\t___________________\n";
 
+	}
 	static clsBankClient Find(string AccountNumber)
 	{
 		//vector <clsBankClient> _vClients;
@@ -309,20 +318,24 @@ public:
 	{
 		return clsBankClient(enMode::AddNewMode, "", "", "", "", AccountNumber, "", 0);
 	}
-	void Deposit(double Amount)
+	void Deposit(float Amount)
 	{
 		_AccountBalance += Amount;
 		Save();
 	}
 
-	void Withdraw(double Amount)
+	void Withdraw(float Amount)
 	{
 		_AccountBalance -= Amount;
 		Save();
 	}
+	static void Transfer(clsBankClient ClientFrom, clsBankClient ClientTo, float TransferValue) {
+		ClientFrom.Withdraw(TransferValue);
+ 		ClientTo.Deposit(TransferValue);
+ 	}
 	static float GetTotalBalance() {
 		vector <clsBankClient> vClients = clsBankClient::GetClientsList();
-		double TotalBalances = 0;
+		float TotalBalances = 0;
 		for (clsBankClient C : vClients)
 		{
 			TotalBalances += C.AccountBalance;

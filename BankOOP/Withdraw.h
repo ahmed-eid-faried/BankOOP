@@ -9,7 +9,7 @@
 class clsWithdrawScreen :protected clsScreen {
 private:
 	static void _ShowWithdraw() {
-		_DrawScreenHeader("Deposit Client");
+		_DrawScreenHeader("Withdraw Client");
 		string AccountNumber = clsBankClient::ReadAccountNumberEixsted("\nPlease enter AccountNumber? ");;
 		double WithdrawValue = clsUtil::ReadDoubleNumber("ENTER YOUR Withdraw Value: ");
 		clsBankClient Client = clsBankClient::Find(AccountNumber);

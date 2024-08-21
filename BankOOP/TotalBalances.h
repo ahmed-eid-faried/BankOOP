@@ -43,6 +43,7 @@ private:
 		_PrintClientHeaderTotalBalances(Clients);
 		_ReadFileByVectorTotalBalances(Clients);
 		cout << "\t\t\t\t\t\t\tTotal Balances = " << TotalBalances << endl;
+		cout << "\t\t\t\t ( " << clsUtil::NumberToText(TotalBalances) <<" )" << endl;
 		cout << endl;
 	}
 public:
