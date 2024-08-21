@@ -6,6 +6,12 @@
 #include<iomanip>
 #include "clsScreen.h"
 #include "clsBankClient.h"
+#include "ListUsers.h"
+#include "AddNewUser.h"
+#include "DeleteUser.h"
+#include "UpdateUser.h"
+#include "FindUser.h"
+#include "ListUsers.h"
 class clsMangeUsersScreen :protected clsScreen {
 private:
 	enum enMangeUsersMenueOptions {
@@ -16,38 +22,38 @@ private:
 		eFindUser = 5,
 		enMainMenue = 6,
 	};
- 	void BackToMangeUsersMenue() {
+	static	void _BackToMangeUsersMenue() {
 		cout << "Press any key to go back to Main Menu...";
 		cin.ignore(); // Clear the input buffer
 		cin.get();    // Wait for a key press
 		system("cls"); // Clear the screen
 		//system("pause>0");
-		ShowMangeUsersMenue();
+		_ShowMangeUsersMenue();
 	}
 
-	void RoutingMangeUsers(enMangeUsersMenueOptions Option) {
+	static	void _RoutingMangeUsers(enMangeUsersMenueOptions Option) {
 		switch (Option)
 		{
 		case enMangeUsersMenueOptions::eListUsers:
 			system("cls");
-			ListUsers();
-			BackToMangeUsersMenue();
+			clsListUsersScreen::ListUsers();
+			_BackToMangeUsersMenue();
 		case enMangeUsersMenueOptions::eAddNewUser:
 			system("cls");
-			AddNewUser();
-			BackToMangeUsersMenue();
+			clsAddNewUserScreen::AddNewUser();
+			_BackToMangeUsersMenue();
 		case enMangeUsersMenueOptions::eDeleteUser:
 			system("cls");
-			DeleteUser();
-			BackToMangeUsersMenue();
+			clsDeleteUserScreen::DeleteUser();
+			_BackToMangeUsersMenue();
 		case enMangeUsersMenueOptions::eUpdateUser:
 			system("cls");
-			UpdateUser();
-			BackToMangeUsersMenue();
+			clsUpdateUserScreen::UpdateUser();
+			_BackToMangeUsersMenue();
 		case enMangeUsersMenueOptions::eFindUser:
 			system("cls");
-			FindUser();
-			BackToMangeUsersMenue();
+			clsFindUserScreen::FindUser();
+			_BackToMangeUsersMenue();
 		case enMangeUsersMenueOptions::enMainMenue:
 			system("cls");
 			//ShowMainMenue();
@@ -56,24 +62,22 @@ private:
 		}
 	}
 
-	void ShowMangeUsersMenue() {
-		cout << "====================================================" << endl;
-		cout << "\t\MangeUsers Menue Screen\n";
-		cout << "====================================================" << endl;
-		cout << "\t   [1] List Users." << endl;
-		cout << "\t   [2] Add New User." << endl;
-		cout << "\t   [3] Delete User." << endl;
-		cout << "\t   [4] Update User." << endl;
-		cout << "\t   [5] Find User." << endl;
-		cout << "\t   [6] Main Menue." << endl;
-		cout << "====================================================" << endl;
-		enMangeUsersMenueOptions Option = (enMangeUsersMenueOptions)clsUtil::ReadNumberInRange(1, 6, "Choose what do you want to do? ");
-		RoutingMangeUsers(Option);
+	static void _ShowMangeUsersMenue() {
+		_DrawScreenHeader("MangeUsers Menue Screen");
+ 		cout << "\t\t\t\t\t   [1] List Users." << endl;
+		cout << "\t\t\t\t\t   [2] Add New User." << endl;
+		cout << "\t\t\t\t\t   [3] Delete User." << endl;
+		cout << "\t\t\t\t\t   [4] Update User." << endl;
+		cout << "\t\t\t\t\t   [5] Find User." << endl;
+		cout << "\t\t\t\t\t   [6] Main Menue." << endl;
+		cout << "\t\t\t\t ====================================================" << endl;
+		enMangeUsersMenueOptions Option = (enMangeUsersMenueOptions)clsUtil::ReadNumberInRange(1, 6, "\t\t\t\t Choose what do you want to do? ");
+		_RoutingMangeUsers(Option);
 	}
 
 
 public:
 	static void MangeUsers() {
-
+		_ShowMangeUsersMenue();
 	}
 };

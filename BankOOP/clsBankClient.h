@@ -6,6 +6,7 @@
 #include "clsUtil.h"
 #include <vector>
 #include <fstream>
+#include "Global.h"
 using namespace std;
 
 
