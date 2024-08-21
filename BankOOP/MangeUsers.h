@@ -38,22 +38,27 @@ private:
 			system("cls");
 			clsListUsers::ListUsers();
 			_BackToMangeUsersMenue();
+			break;
 		case enMangeUsersMenueOptions::eAddNewUser:
 			system("cls");
 			clsAddNewUserScreen::AddNewUser();
 			_BackToMangeUsersMenue();
+			break;
 		case enMangeUsersMenueOptions::eDeleteUser:
 			system("cls");
 			clsDeleteUserScreen::DeleteUser();
 			_BackToMangeUsersMenue();
+			break;
 		case enMangeUsersMenueOptions::eUpdateUser:
 			system("cls");
 			clsUpdateUserScreen::UpdateUser();
 			_BackToMangeUsersMenue();
+			break;
 		case enMangeUsersMenueOptions::eFindUser:
 			system("cls");
 			clsFindUserScreen::FindUser();
 			_BackToMangeUsersMenue();
+			break;
 		case enMangeUsersMenueOptions::enMainMenue:
 			system("cls");
 			break;

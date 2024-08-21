@@ -302,7 +302,7 @@ public:
 	}
 	// œ«·… ·Ê÷⁄ «·√–Ê‰« 
 	static int setPermissions(sPermissions Permissions) {
-		return Permissions.ListUsers | Permissions.Add | Permissions.Delete | Permissions.Update | Permissions.FIND | Permissions.Transactions | Permissions.MangeUsers;
+		return Permissions.ListUsers | Permissions.Add | Permissions.Delete | Permissions.Update | Permissions.FIND | Permissions.Transactions | Permissions.MangeUsers | Permissions.LogFile;
 	}
 
 	// œ«·… ·· Õﬁﬁ „‰ «·√–Ê‰« 
@@ -330,6 +330,7 @@ public:
 			Permissions.FIND = enPermissions(0);
 			Permissions.Transactions = enPermissions(0);
 			Permissions.MangeUsers = enPermissions(0);
+			Permissions.LogFile = enPermissions(0);
 		}
 		else
 		{
@@ -340,6 +341,7 @@ public:
 			Permissions.FIND = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Find USER?") ? enPermissions::PERMISSION_Find : enPermissions(0);
 			Permissions.Transactions = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR Transactions?") ? enPermissions::PERMISSION_Transactions : enPermissions(0);
 			Permissions.MangeUsers = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR MangeUsers?") ? enPermissions::PERMISSION_MangeUsers : enPermissions(0);
+			Permissions.LogFile = clsUtil::ReadBool("\t\t\t\tARE YOU Permission FOR LogFile Rigester?") ? enPermissions::PERMISSION_LogFile : enPermissions(0);
 
 		}
 		return setPermissions(Permissions);

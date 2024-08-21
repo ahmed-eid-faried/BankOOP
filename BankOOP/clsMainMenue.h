@@ -69,22 +69,27 @@ private:
 			system("cls");
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_ListUsers)) { _ShowClients(); };
 			BackToMainMenue();
+			break;
 		case enMainMenueOptions::eAddNewClient:
 			system("cls");
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Add)) { _AddNewClient(); };
 			BackToMainMenue();
+			break;
 		case enMainMenueOptions::eDeleteClient:
 			system("cls");
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Delete)) { _DeleteClient(); };
 			BackToMainMenue();
+			break;
 		case enMainMenueOptions::eUpdateClientInfo:
 			system("cls");
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Update)) { _UpdateClientInfo(); };
 			BackToMainMenue();
+			break;
 		case enMainMenueOptions::eFindClient:
 			system("cls");
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Find)) { _FindClient(); };
 			BackToMainMenue();
+			break;
 		case enMainMenueOptions::eTransactions:
 			system("cls");
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Transactions)) { _Transactions(); };
@@ -97,12 +102,14 @@ private:
 			ShowMainMenue();
 		case enMainMenueOptions::eLogFile:
 			system("cls");
-			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_ListUsers)) { _ShowLog(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_LogFile)) { _ShowLog(); };
 			BackToMainMenue();
+			break;
 		case enMainMenueOptions::eExiting:
 			system("cls");
 			_LoginScreen();
 			//Exiting();
+			break;
 		default:
 			break;
 		}
