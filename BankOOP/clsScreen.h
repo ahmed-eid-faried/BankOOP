@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "clsUser.h"
 using namespace std;
+static clsUser CurrentUser = clsUser::Find("", "");
 
 class clsScreen {
 public:
@@ -23,14 +25,9 @@ public:
 		cout << "========================================================" << endl;
 		cout << "========================================================" << endl;
 	}
-	static bool Nivagation(clsUser::enPermissions Permission) {
-		bool state = clsUser::checkPermission(Permission);
- 		if (!state)	clsScreen::DeniedPermissions();
+	static bool NivagationPermission(enPermissions Permission) {
+		bool state = clsUser::checkPermission(Permission, CurrentUser.Permissions);
+		if (!state)	clsScreen::DeniedPermissions();
 		return state;
 	}
-
-
-
-
-
 };

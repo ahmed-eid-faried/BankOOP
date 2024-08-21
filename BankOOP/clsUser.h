@@ -1,12 +1,13 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "clsString.h"
-#include "clsUtil.h"
 #include <vector>
 #include <fstream>
+#include "clsString.h"
+#include "clsUtil.h"
 #include "Global.h"
-#include "clsBankClient.h"
+#include "clsPerson.h"
+
 using namespace std;
 
 class clsUser : public clsPerson
@@ -39,7 +40,7 @@ private:
 		Line += Client.Phone + Seperator;
 		Line += Client.UserName + Seperator;
 		Line += Client.Password + Seperator;
-		Line += to_string(Client.Permissions) + Seperator;
+		Line += to_string(Client.Permissions);
 		return Line;
 	}
 	static  vector <clsUser> _LoadClientsDataFromFile()
@@ -109,6 +110,8 @@ private:
 	}
 
 public:
+	//static clsUser CurrentUser ;
+
 	static string ReadUserNameEixsted(string Message = "ENTER YOUR UserName: ") {
 		string UserName = "";
 		bool state = false;
@@ -256,7 +259,7 @@ public:
 	}
 
 
- 
+
 	void Update() {
 		_Mode = enMode::UpdateMode;
 	}
@@ -297,38 +300,13 @@ public:
 	{
 		return clsUser(enMode::AddNewMode, "", "", "", "", UserName, "", 0);
 	}
-
-
-
-	//  ⁄—Ì› enum ··√–Ê‰« 
-	static enum enPermissions {
-		PERMISSION_ListUsers = 1 << 0, // 0000001 -> 1
-		PERMISSION_Add = 1 << 1, // 0000010 -> 2
-		PERMISSION_Delete = 1 << 2, // 0000100 -> 4
-		PERMISSION_Update = 1 << 3, // 0001000 -> 8
-		PERMISSION_Find = 1 << 4, // 0010000 -> 16
-		PERMISSION_Transactions = 1 << 5, // 0100000 -> 32
-		PERMISSION_MangeUsers = 1 << 6, // 1000000 -> 64
-		PERMISSION_AllPermissions = (1 << 0 | 1 << 1 | 1 << 2 | 1 << 3 | 1 << 4 | 1 << 5 | 1 << 6), // 1111111 -> 127
-	};
-
-	static struct sPermissions {
-		enPermissions ListUsers;
-		enPermissions Add;
-		enPermissions Delete;
-		enPermissions Update;
-		enPermissions FIND;
-		enPermissions Transactions;
-		enPermissions MangeUsers;
-	};
-
 	// œ«·… ·Ê÷⁄ «·√–Ê‰« 
 	static int setPermissions(sPermissions Permissions) {
 		return Permissions.ListUsers | Permissions.Add | Permissions.Delete | Permissions.Update | Permissions.FIND | Permissions.Transactions | Permissions.MangeUsers;
 	}
 
 	// œ«·… ·· Õﬁﬁ „‰ «·√–Ê‰« 
-	static bool checkPermission(enPermissions permission, int permissions = CurrentUser.Permissions) {
+	static bool checkPermission(enPermissions permission, int permissions) {
 		return (permissions & permission) != 0;
 	}
 	// œ«·… ·≈÷«›… √–Ê‰«  ÃœÌœ…

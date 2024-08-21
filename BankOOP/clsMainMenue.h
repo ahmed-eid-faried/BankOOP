@@ -9,12 +9,12 @@
 #include "FindClient.h"
 #include "Transactions.h"
 #include "MangeUsers.h"
-#include "LoginScreen.h"
 #include "clsUser.h"
+#include "LoginScreen.h"
 using namespace std;
-class clsMainMenueScreen :protected clsScreen {
+static void LoginScreen();
+ class clsMainMenueScreen :protected clsScreen {
 private:
-	//void LoginScreen();
 	enum enMainMenueOptions {
 		eShowClients = 1,
 		eAddNewClient = 2,
@@ -54,39 +54,40 @@ private:
 		clsMangeUsersScreen::MangeUsers();
 	}
 	static void _LoginScreen() {
-		clsLoginScreen::LoginScreen();
+		//callstak
+		// clsLoginScreen::LoginScreen();
 	}
 	static void _Routing(enMainMenueOptions Option) {
 		switch (Option)
 		{
 		case enMainMenueOptions::eShowClients:
 			system("cls");
-			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_ListUsers)) { _ShowClients(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_ListUsers)) { _ShowClients(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eAddNewClient:
 			system("cls");
-			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Add)) { _AddNewClient(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Add)) { _AddNewClient(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eDeleteClient:
 			system("cls");
-			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Delete)) { _DeleteClient(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Delete)) { _DeleteClient(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eUpdateClientInfo:
 			system("cls");
-			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Update)) { _UpdateClientInfo(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Update)) { _UpdateClientInfo(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eFindClient:
 			system("cls");
-			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Find)) { _FindClient(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Find)) { _FindClient(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eTransactions:
 			system("cls");
-			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Transactions)) { _Transactions(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Transactions)) { _Transactions(); };
 			system("cls");
 			ShowMainMenue();
 		case enMainMenueOptions::eMangeUsers:
 			system("cls");
-			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_MangeUsers)) { _MangeUsers(); };
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_MangeUsers)) { _MangeUsers(); };
 			system("cls");
 			ShowMainMenue();
 		case enMainMenueOptions::eExiting:
