@@ -136,7 +136,7 @@ public:
 
 	clsLogFile(clsUser User) {
 		_Mode = enMode::AddNewMode;
-		_Date = clsDate::DateToString(clsDate());
+		_Date = clsDate::DateTimeToString(clsDate());
 		_UserName = User.UserName;
 		_Password = User.Password;
 		_Permissions = User.Permissions;

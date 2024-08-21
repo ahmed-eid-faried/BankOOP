@@ -14,6 +14,9 @@ private:
 	short _Day = 1;
 	short _Month = 1;
 	short _Year = 1900;
+	short _Hour = 1;
+	short _Min = 1;
+	short _Sec = 1;
 
 public:
 
@@ -24,6 +27,11 @@ public:
 		_Day = now->tm_mday;
 		_Month = now->tm_mon + 1;
 		_Year = now->tm_year + 1900;
+		///////////////////////////
+		_Hour = now->tm_hour;
+		_Min = now->tm_min;
+		_Sec = now->tm_sec;
+
 	}
 
 	clsDate(string sDate)
@@ -55,6 +63,21 @@ public:
 		_Month = Date1.Month;
 		_Year = Date1.Year;
 	}
+
+	//setter and getter
+	short GetSec() { return _Sec; }
+	void SetSec(short Sec) { _Sec = Sec; }
+	__declspec(property(get = GetSec, put = SetSec))short Sec;
+
+	//setter and getter
+	short GetHour() { return _Hour; }
+	void SetHour(short Hour) { _Hour = Hour; }
+	__declspec(property(get = GetHour, put = SetHour))short Hour;
+
+	//setter and getter
+	short GetMin() { return _Min; }
+	void SetMin(short Min) { _Min = Min; }
+	__declspec(property(get = GetMin, put = SetMin))short Min;
 
 	void SetDay(short Day) {
 		_Day = Day;
@@ -103,6 +126,23 @@ public:
 
 		return clsDate(Day, Month, Year);
 	}
+	static clsDate GetSystemDateTime()
+	{
+		//system date
+		time_t t = time(0);
+		tm* now = localtime(&t);
+
+		short Day, Month, Year, Hour, Min, Sec;
+
+		Year = now->tm_year + 1900;
+		Month = now->tm_mon + 1;
+		Day = now->tm_mday;
+		Hour = now->tm_hour;
+		Min = now->tm_min;
+		Sec = now->tm_sec;
+
+		return clsDate(Day, Month, Year);
+	}
 
 	static	bool IsValidDate(clsDate Date)
 	{
@@ -144,6 +184,11 @@ public:
 	static string DateToString(clsDate Date)
 	{
 		return  to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
+	}
+	static string DateTimeToString(clsDate Date)
+	{
+		return  to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year)
+			+ " - " + to_string(Date.Hour) + ":" + to_string(Date.Min) + ":" + to_string(Date.Sec);
 	}
 
 	string DateToString()
