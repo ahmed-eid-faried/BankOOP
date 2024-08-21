@@ -193,16 +193,7 @@ public:
 		cout << "\n\t\t\t\t___________________\n";
 
 	}
-	void PrintClientCard()
-	{
-		cout << "\n\t\t\t\tClient Card:";
-		cout << "\n\t\t\t\t___________________"; 
-		cout << "\n\t\t\t\tFull Name   : " << FullName; 
-		cout << "\n\t\t\t\tPassword    : " << _PinCode;
-		cout << "\n\t\t\t\tBalance     : " << _AccountBalance;
-		cout << "\n\t\t\t\t___________________\n";
 
-	}
 	static clsBankClient Find(string AccountNumber)
 	{
 		//vector <clsBankClient> _vClients;
