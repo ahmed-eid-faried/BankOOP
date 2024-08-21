@@ -21,8 +21,7 @@ public:
 		}
 		cout << "\t\t\t\t====================================================" << endl;
 		cout << "\t\t\t\tUser:" << CurrentUser.UserName << endl;
-		clsDate Date;
-		cout << "\t\t\t\tDate:" << Date.DateToString() << endl;
+ 		cout << "\t\t\t\tDate:" << clsDate::DateToString(clsDate()) << endl;
 		cout << "\t\t\t\t====================================================" << endl;
 	}
 
