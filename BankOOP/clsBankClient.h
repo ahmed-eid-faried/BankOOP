@@ -8,11 +8,8 @@
 #include <fstream>
 using namespace std;
 
-const string Seperator = "#//#";
-const string ClientPathFile = "clients.txt";
-//const string  ClientsFileName = "clients.txt";
-//const string  UsersFileName = "users.txt";
-//const string  Seperator = "#%&#";
+
+ 
 class clsBankClient : public clsPerson
 {
 private:

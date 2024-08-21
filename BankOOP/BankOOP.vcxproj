@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddNewClient.h" />
+    <ClInclude Include="AddNewUser.h" />
     <ClInclude Include="clsBankClient.h" />
     <ClInclude Include="clsDate.h" />
     <ClInclude Include="clsDeleteClient.h" />
@@ -139,9 +140,14 @@
     <ClInclude Include="clsPerson.h" />
     <ClInclude Include="clsScreen.h" />
     <ClInclude Include="clsString.h" />
+    <ClInclude Include="clsUser.h" />
     <ClInclude Include="clsUtil.h" />
+    <ClInclude Include="DeleteUser.h" />
     <ClInclude Include="Deposit.h" />
     <ClInclude Include="FindClient.h" />
+    <ClInclude Include="FindUser.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="ListUsers.h" />
     <ClInclude Include="LoginScreen.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MangeUsers.h" />
@@ -150,6 +156,7 @@
     <ClInclude Include="TotalBalances.h" />
     <ClInclude Include="Transactions.h" />
     <ClInclude Include="UpdateClient.h" />
+    <ClInclude Include="UpdateUser.h" />
     <ClInclude Include="Withdraw.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

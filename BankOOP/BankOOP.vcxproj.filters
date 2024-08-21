@@ -25,6 +25,9 @@
     <Filter Include="Header Files\ui\Transactions">
       <UniqueIdentifier>{44a41464-bc46-499b-abf5-b6a9899f298e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ui\MangeUsers">
+      <UniqueIdentifier>{c4f2a42e-8fdc-4355-beec-cec20392d52d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BankOOP.cpp">
@@ -94,6 +97,27 @@
     </ClInclude>
     <ClInclude Include="TotalBalances.h">
       <Filter>Header Files\ui\Transactions</Filter>
+    </ClInclude>
+    <ClInclude Include="ListUsers.h">
+      <Filter>Header Files\ui\MangeUsers</Filter>
+    </ClInclude>
+    <ClInclude Include="AddNewUser.h">
+      <Filter>Header Files\ui\MangeUsers</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteUser.h">
+      <Filter>Header Files\ui\MangeUsers</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateUser.h">
+      <Filter>Header Files\ui\MangeUsers</Filter>
+    </ClInclude>
+    <ClInclude Include="FindUser.h">
+      <Filter>Header Files\ui\MangeUsers</Filter>
+    </ClInclude>
+    <ClInclude Include="clsUser.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
