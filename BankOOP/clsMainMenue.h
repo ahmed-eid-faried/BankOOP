@@ -10,6 +10,7 @@
 #include "Transactions.h"
 #include "MangeUsers.h"
 #include "LoginScreen.h"
+#include "clsUser.h"
 using namespace std;
 class clsMainMenueScreen :protected clsScreen {
 private:
@@ -60,40 +61,40 @@ private:
 		{
 		case enMainMenueOptions::eShowClients:
 			system("cls");
-			_ShowClients();
-			//checkPermission(enPermissions::PERMISSION_ListUsers) ? _ShowClients() : DeniedPermissions();
+			//_ShowClients();
+			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_ListUsers) ? _ShowClients() : DeniedPermissions();
 			BackToMainMenue();
 		case enMainMenueOptions::eAddNewClient:
 			system("cls");
-			_AddNewClient();
-			//checkPermission(enPermissions::PERMISSION_Add) ? _AddNewClient() : DeniedPermissions();
+			//_AddNewClient();
+			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Add) ? _AddNewClient() : DeniedPermissions();
 			BackToMainMenue();
 		case enMainMenueOptions::eDeleteClient:
 			system("cls");
-			_DeleteClient();
-			//checkPermission(enPermissions::PERMISSION_Delete) ? _DeleteClient() : DeniedPermissions();
+			//_DeleteClient();
+			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Delete) ? _DeleteClient() : DeniedPermissions();
 			BackToMainMenue();
 		case enMainMenueOptions::eUpdateClientInfo:
 			system("cls");
-			_UpdateClientInfo();
-			//checkPermission(enPermissions::PERMISSION_Update) ? _UpdateClientInfo() : DeniedPermissions();
+			//_UpdateClientInfo();
+			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Update) ? _UpdateClientInfo() : DeniedPermissions();
 			BackToMainMenue();
 		case enMainMenueOptions::eFindClient:
 			system("cls");
-			_FindClient();
-			//checkPermission(enPermissions::PERMISSION_Find) ? _FindClient() : DeniedPermissions();
+			//_FindClient();
+			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Find) ? _FindClient() : DeniedPermissions();
 			BackToMainMenue();
 		case enMainMenueOptions::eTransactions:
 			system("cls");
-			_Transactions();
-			//checkPermission(enPermissions::PERMISSION_Transactions) ? _Transactions() : DeniedPermissions();
+			//_Transactions();
+			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Transactions) ? _Transactions() : DeniedPermissions();
 			//BackToMainMenue();
 			system("cls");
 			ShowMainMenue();
 		case enMainMenueOptions::eMangeUsers:
 			system("cls");
-			_MangeUsers();
-			//checkPermission(enPermissions::PERMISSION_MangeUsers) ? _MangeUsers() : DeniedPermissions();
+			//_MangeUsers();
+			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_MangeUsers) ? _MangeUsers() : DeniedPermissions();
 			//BackToMainMenue();
 			system("cls");
 			ShowMainMenue();
