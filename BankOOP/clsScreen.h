@@ -20,11 +20,15 @@ public:
 			cout << "\t\t\t\t\t\t" << subtitle << endl;
 		}
 		cout << "\t\t\t\t====================================================" << endl;
+		cout << "\t\t\t\tUser:" << CurrentUser.UserName << endl;
+		clsDate Date;
+		cout << "\t\t\t\tDate:" << Date.DateToString() << endl;
+		cout << "\t\t\t\t====================================================" << endl;
 	}
 
 	static 	void DeniedPermissions() {
 		_DrawScreenHeader("Access Denied");
-		cout << endl<<endl;
+		cout << endl << endl;
 		cout << "\t\t\t\t====================================================" << endl;
 		cout << "\t\t\t\t====================================================" << endl;
 		cout << "\t\t\t\tAccess Denied" << endl;
