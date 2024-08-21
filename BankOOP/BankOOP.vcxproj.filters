@@ -116,5 +116,11 @@
     <ClInclude Include="LoginScreen.h">
       <Filter>Header Files\login</Filter>
     </ClInclude>
+    <ClInclude Include="LogFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFileRigesterScreen.h">
+      <Filter>Header Files\ui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

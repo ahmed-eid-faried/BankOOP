@@ -10,6 +10,7 @@
 #include "MangeUsers.h"
 #include "clsUser.h"
 #include "LoginScreen.h"
+#include "LogFileRigesterScreen.h"
 using namespace std;
 static void LoginScreen();
 class clsMainMenueScreen :protected clsScreen {
@@ -22,7 +23,8 @@ private:
 		eFindClient = 5,
 		eTransactions = 6,
 		eMangeUsers = 7,
-		eExiting = 8,
+		eLogFile = 8,
+		eExiting = 9,
 	};
 	static void _Exiting() {
 		cout << "Exiting the CLI" << endl;
@@ -52,6 +54,7 @@ private:
 	static void _MangeUsers() {
 		clsMangeUsersScreen::MangeUsers();
 	}
+
 	static void _LoginScreen() {
 		//callstak
 		// clsLoginScreen::LoginScreen();
@@ -89,6 +92,10 @@ private:
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_MangeUsers)) { _MangeUsers(); };
 			system("cls");
 			ShowMainMenue();
+		case enMainMenueOptions::eLogFile:
+			system("cls");
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Update)) { LogFileRigesterScreen::ShowLogs(); };
+			BackToMainMenue();
 		case enMainMenueOptions::eExiting:
 			system("cls");
 			_LoginScreen();
@@ -116,9 +123,10 @@ public:
 		cout << "\t\t\t\t\t   [5] Find Client." << endl;
 		cout << "\t\t\t\t\t   [6] Transactions Menue." << endl;
 		cout << "\t\t\t\t\t   [7] Mange Users Menue." << endl;
-		cout << "\t\t\t\t\t   [8] Logout." << endl;
+		cout << "\t\t\t\t\t   [8] Login Register Screen." << endl;
+		cout << "\t\t\t\t\t   [9] Logout." << endl;
 		cout << "\t\t\t\t====================================================" << endl;
-		enMainMenueOptions Option = (enMainMenueOptions)clsUtil::ReadNumberInRange(1, 8, "\t\t\t\tChoose what do you want to do? ");
+		enMainMenueOptions Option = (enMainMenueOptions)clsUtil::ReadNumberInRange(1, 9, "\t\t\t\tChoose what do you want to do? ");
 		_Routing(Option);
 	}
 };

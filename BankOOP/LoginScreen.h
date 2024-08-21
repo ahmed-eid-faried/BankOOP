@@ -6,6 +6,7 @@
 #include<iomanip>
 #include "clsScreen.h"
 #include "clsMainMenue.h"
+#include "LogFile.h"
 
 using namespace std;
 class clsLoginScreen :protected clsScreen {
@@ -41,6 +42,7 @@ public:
 				CurrentUser = User;
 				system("cls");
 				clsMainMenueScreen::ShowMainMenue();
+				clsLogFile::LogFileRigester(CurrentUser);
 			}
 			else {
 				Invalid++;
