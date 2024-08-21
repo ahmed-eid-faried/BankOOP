@@ -13,4 +13,24 @@ public:
 		}
 		cout << "\t\t\t\t====================================================" << endl;
 	}
+
+	static 	void DeniedPermissions() {
+		cout << "========================================================" << endl;
+		cout << "========================================================" << endl;
+		cout << "Access Denied" << endl;
+		cout << "You don't Have Permiddion To Do This," << endl;
+		cout << "Please Conact Your Admin." << endl;
+		cout << "========================================================" << endl;
+		cout << "========================================================" << endl;
+	}
+	static bool Nivagation(clsUser::enPermissions Permission) {
+		bool state = clsUser::checkPermission(Permission);
+ 		if (!state)	clsScreen::DeniedPermissions();
+		return state;
+	}
+
+
+
+
+
 };

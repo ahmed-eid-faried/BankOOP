@@ -61,41 +61,32 @@ private:
 		{
 		case enMainMenueOptions::eShowClients:
 			system("cls");
-			//_ShowClients();
-			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_ListUsers) ? _ShowClients() : DeniedPermissions();
+			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_ListUsers)) { _ShowClients(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eAddNewClient:
 			system("cls");
-			//_AddNewClient();
-			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Add) ? _AddNewClient() : DeniedPermissions();
+			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Add)) { _AddNewClient(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eDeleteClient:
 			system("cls");
-			//_DeleteClient();
-			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Delete) ? _DeleteClient() : DeniedPermissions();
+			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Delete)) { _DeleteClient(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eUpdateClientInfo:
 			system("cls");
-			//_UpdateClientInfo();
-			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Update) ? _UpdateClientInfo() : DeniedPermissions();
+			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Update)) { _UpdateClientInfo(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eFindClient:
 			system("cls");
-			//_FindClient();
-			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Find) ? _FindClient() : DeniedPermissions();
+			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Find)) { _FindClient(); };
 			BackToMainMenue();
 		case enMainMenueOptions::eTransactions:
 			system("cls");
-			//_Transactions();
-			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_Transactions) ? _Transactions() : DeniedPermissions();
-			//BackToMainMenue();
+			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_Transactions)) { _Transactions(); };
 			system("cls");
 			ShowMainMenue();
 		case enMainMenueOptions::eMangeUsers:
 			system("cls");
-			//_MangeUsers();
-			clsUser::checkPermission(clsUser::enPermissions::PERMISSION_MangeUsers) ? _MangeUsers() : DeniedPermissions();
-			//BackToMainMenue();
+			if (clsScreen::NivagationPermission(clsUser::enPermissions::PERMISSION_MangeUsers)) { _MangeUsers(); };
 			system("cls");
 			ShowMainMenue();
 		case enMainMenueOptions::eExiting:
