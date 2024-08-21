@@ -19,6 +19,7 @@ class clsUpdateUserScreen :protected clsScreen {
 private:
 
 	static	clsUser _ReadUpdateUser(clsUser User) {
+		User.UserName = clsUtil::ReadString("ENTER YOUR UserName: ");
 		User.Password = clsUtil::ReadString("ENTER YOUR Password: ");
 		User.FirstName = clsUtil::ReadString("ENTER YOUR FirstName: ");
 		User.LastName = clsUtil::ReadString("ENTER YOUR LastName: ");
@@ -36,6 +37,5 @@ public:
 		User = _ReadUpdateUser(User);
 		User.Save();
 		User.Print();
-
 	}
 };

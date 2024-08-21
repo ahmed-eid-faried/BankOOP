@@ -6,13 +6,13 @@ using namespace std;
 class clsAddNewUserScreen :protected clsScreen {
 private:
 	static clsUser _ReadNewUser() {
-		clsUser User("ENTER YOUR AccountNumber: ");
+		clsUser User("ENTER YOUR UserName: ");
 		User.Password = clsUtil::ReadString("ENTER YOUR Password: ");
 		User.FirstName = clsUtil::ReadString("ENTER YOUR FirstName: ");
 		User.LastName = clsUtil::ReadString("ENTER YOUR LastName: ");
 		User.Phone = clsUtil::ReadString("ENTER YOUR Phone: ");
-		User.Permissions = clsUtil::ReadDoubleNumber("ENTER YOUR Permissions: ");
-		return User;
+		User.Permissions = clsUser::ReadPermissions();
+ 		return User;
 	};
 
 public:
