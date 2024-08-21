@@ -163,8 +163,8 @@ public:
 
 	//setter and getter
 	string GetUserName() { return _UserName; }
-	//void SetUserName(string UserName) { _UserName = UserName; }
-	__declspec(property(get = GetUserName))string UserName;
+	void SetUserName(string UserName) { _UserName = UserName; }
+	__declspec(property(get = GetUserName, put = SetUserName))string UserName;
 
 	//setter and getter
 	string GetPassword() { return _Password; }
