@@ -10,6 +10,7 @@
 #include "clsMainMenue.h"
 #include "transfer.h"
 #include "TransferLogsScreen.h"
+#include "ListCurrencies.h"
 using namespace std;
 
 class clsCurrencyScreen : protected clsScreen {
@@ -34,22 +35,22 @@ private:
 		switch (Option) {
 		case enCurrencyMenueOptions::eListCurrencies:
 			system("cls");
-			clsDepositScreen::Deposit();
+			clsListCurrenciesScreen::ListCurrencies();
 			_BackToCurrencyMenue();
 			break;
 		case enCurrencyMenueOptions::eFindCurrency:
 			system("cls");
-			clsWithdrawScreen::Withdraw();
+			//clsFindCurrencyScreen::FindCurrency();
 			_BackToCurrencyMenue();
 			break;
 		case enCurrencyMenueOptions::eUpdateRate:
 			system("cls");
-			clsTotalBalancesScreen::TotalBalances();
+			//clsUpdateRateScreen::UpdateRate();
 			_BackToCurrencyMenue();
 			break;
 		case enCurrencyMenueOptions::eCurrencyCalculator:
 			system("cls");
-			clsTransferScreen::Transfer();
+			//clsCurrencyCalculatorScreen::CurrencyCalculator();
 			_BackToCurrencyMenue();
 			break;
 		case enCurrencyMenueOptions::eMainMenue:
@@ -59,7 +60,7 @@ private:
 			break;
 		}
 	}
-	
+
 	static void _ShowCurrencyMenue() {
 		_DrawScreenHeader("Currency Exhange Menue");
 		cout << "\t\t\t\t\t   [1] List Currencies." << endl;

@@ -150,6 +150,7 @@
     <ClInclude Include="FindUser.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="InterfaceCommunication.h" />
+    <ClInclude Include="ListCurrencies.h" />
     <ClInclude Include="ListUsers.h" />
     <ClInclude Include="LogFile.h" />
     <ClInclude Include="LogFileRigesterScreen.h" />
