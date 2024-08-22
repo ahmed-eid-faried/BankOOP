@@ -6,6 +6,7 @@ const string Seperator = "#//#";
 const string ClientPathFile = "clients.txt";
 const string UsersPathFile = "users.txt";
 const string LogFilePathFile = "LogFile.txt";
+const string TransferPathFile = "TransferLogFile.txt";
  //  ⁄—Ì› enum ··√–Ê‰« 
 const enum enPermissions {
 	PERMISSION_ListUsers = 1 << 0, // 0000001 -> 1

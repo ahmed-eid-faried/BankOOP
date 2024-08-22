@@ -88,6 +88,84 @@ private:
 			MyFile.close();
 		}
 	}
+	////////////////////////////////////////////////////////////////////////////////////////
+	static struct LogTransfer {
+		string  DateTime;
+		string AccountFrom;
+		string AccountTo;
+		float Amount;
+		float BalanceAfter1;
+		float BalanceAfter2;
+		string User;
+	};
+	//LogTransfer _ConvertLinetoTransferObject(string Line, string Seperator = Seperator);
+	//string _ConverTransferObjectToLine(LogTransfer Transfer, string Seperator = Seperator);
+	//vector <LogTransfer> _LoadTransfersDataFromFile();
+	//void _SaveTransfersDataToFile(vector <LogTransfer> vTransfers);
+	//void _AddDataLineToTransferFile(LogTransfer  Transfer);
+
+	static LogTransfer _ConvertLinetoTransferObject(string Line, string Seperator = Seperator)
+	{
+		vector <string> strClient = clsString::Split(Line, Seperator);
+		LogTransfer Transfer = { strClient[0], strClient[1], strClient[2],
+			stof(strClient[3]), stof(strClient[4]), stof(strClient[5]),	strClient[6] };
+		return  Transfer;
+	}
+	static string _ConverTransferObjectToLine(LogTransfer Transfer, string Seperator = Seperator)
+	{
+		//DATE-TIME//A1//A2//AMOUNT//BA1//BA2//USER
+		string Line = "";
+		Line += Transfer.DateTime + Seperator;
+		Line += Transfer.AccountFrom + Seperator;
+		Line += Transfer.AccountTo + Seperator;
+		Line += to_string(Transfer.Amount) + Seperator;
+		Line += to_string(Transfer.BalanceAfter1) + Seperator;
+		Line += to_string(Transfer.BalanceAfter2) + Seperator;
+		Line += Transfer.User;
+		return Line;
+	}
+	static  vector <LogTransfer> _LoadTransfersDataFromFile()
+	{
+		fstream MyFile;
+		string Line;
+		vector <LogTransfer> Transfers;
+		MyFile.open(TransferPathFile, ios::in);//read mode
+		if (MyFile.is_open()) {
+			while (getline(MyFile, Line))
+			{
+				LogTransfer Transfer = _ConvertLinetoTransferObject(Line, Seperator);
+				Transfers.push_back(Transfer);
+			}
+			MyFile.close();
+		}
+		return Transfers;
+	}
+	static void _SaveTransfersDataToFile(vector <LogTransfer> vTransfers)
+	{
+		fstream MyFile;
+		MyFile.open(TransferPathFile, ios::out);//write mode
+		if (MyFile.is_open()) {
+			string DataLine;
+			for (LogTransfer C : vTransfers)
+			{
+				//we only write records that are not marked for delete.  
+				DataLine = _ConverTransferObjectToLine(C);
+				MyFile << DataLine << endl;
+			}
+			MyFile.close();
+		}
+	}
+	static void _AddDataLineToTransferFile(LogTransfer  Transfer)
+	{
+		fstream MyFile;
+		MyFile.open(TransferPathFile, ios::out | ios::app);//append mode or create mode
+		if (MyFile.is_open()) {
+			string   DataLine = _ConverTransferObjectToLine(Transfer);
+			MyFile << DataLine << endl;
+			MyFile.close();
+		}
+	}
+	////////////////////////////////////////////////////////////////////////////////////////
 	void _Update()
 	{
 		vector <clsBankClient> _vClients;
@@ -320,10 +398,28 @@ public:
 		_AccountBalance -= Amount;
 		Save();
 	}
+	static void TransferLogs(clsBankClient ClientFrom, clsBankClient ClientTo, float TransferValue) {
+		//LogTransfer _ConvertLinetoTransferObject(string Line, string Seperator = Seperator);
+		//string _ConverTransferObjectToLine(LogTransfer Transfer, string Seperator = Seperator);
+		//vector <LogTransfer> _LoadTransfersDataFromFile();
+		//void _SaveTransfersDataToFile(vector <LogTransfer> vTransfers);
+		LogTransfer  Transfer = {
+		 clsDate::DateTimeToString(clsDate()),
+		  ClientFrom.AccountNumber,
+		  ClientTo.AccountNumber,
+		  TransferValue,
+		  ClientFrom.AccountBalance,
+		  ClientTo.AccountBalance,
+		  CurrentUser.UserName,
+		};
+		_AddDataLineToTransferFile(Transfer);
+	}
+
 	static void Transfer(clsBankClient ClientFrom, clsBankClient ClientTo, float TransferValue) {
 		ClientFrom.Withdraw(TransferValue);
- 		ClientTo.Deposit(TransferValue);
- 	}
+		ClientTo.Deposit(TransferValue);
+		TransferLogs(ClientFrom, ClientTo, TransferValue);
+	}
 	static float GetTotalBalance() {
 		vector <clsBankClient> vClients = clsBankClient::GetClientsList();
 		float TotalBalances = 0;
