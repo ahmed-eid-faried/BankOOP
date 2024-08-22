@@ -17,25 +17,25 @@ private:
 		cout << "\n\t\t_______________________________________________________";
 		cout << "__________________________________\n" << endl;
 		cout << "\t\t";
-		cout << "| " << left << setw(30) << "Date / Time";
-		cout << "| " << left << setw(16) << "AccountFrom";
-		cout << "| " << left << setw(16) << "AccountTo";
-		cout << "| " << left << setw(16) << "Amount";
-		cout << "| " << left << setw(16) << "BalanceAfter1";
-		cout << "| " << left << setw(16) << "BalanceAfter2";
-		cout << "| " << left << setw(16) << "User";
+		cout << "| " << left << setw(22) << "Date / Time";
+		cout << "| " << left << setw(10) << "Acc. From";
+		cout << "| " << left << setw(10) << "Acc. To";
+		cout << "| " << left << setw(8) << "Amount";
+		cout << "| " << left << setw(10) << "Bal. From";
+		cout << "| " << left << setw(10) << "Bal. To";
+		cout << "| " << left << setw(10) << "User";
 		cout << "\n\t\t_______________________________________________________";
 		cout << "__________________________________\n" << endl;
 	};
 	static void PrintLog(clsBankClient::LogTransfer Log) {
 		cout << "\t\t";
-		cout << "| " << setw(30) << left << Log.DateTime;
-		cout << "| " << setw(16) << left << Log.AccountFrom;
-		cout << "| " << setw(16) << left << Log.AccountTo;
-		cout << "| " << setw(16) << left << Log.Amount;
-		cout << "| " << setw(16) << left << Log.BalanceAfter1;
-		cout << "| " << setw(16) << left << Log.BalanceAfter2;
-		cout << "| " << setw(16) << left << Log.User;
+		cout << "| " << setw(22) << left << Log.DateTime;
+		cout << "| " << setw(10) << left << Log.AccountFrom;
+		cout << "| " << setw(10) << left << Log.AccountTo;
+		cout << "| " << setw(8) << left << Log.Amount;
+		cout << "| " << setw(10) << left << Log.BalanceAfter1;
+		cout << "| " << setw(10) << left << Log.BalanceAfter2;
+		cout << "| " << setw(10) << left << Log.User;
 	};
 	static void PrintLogsBody(vector<clsBankClient::LogTransfer> Logs) {
 		for (clsBankClient::LogTransfer& C : Logs) {

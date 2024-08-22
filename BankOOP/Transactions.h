@@ -9,6 +9,7 @@
 #include "TotalBalances.h"
 #include "clsMainMenue.h"
 #include "transfer.h"
+#include "TransferLogsScreen.h"
 using namespace std;
 
 class clsTransactionsScreen : protected clsScreen {
@@ -18,7 +19,8 @@ private:
 		eWithdraw = 2,
 		eTotalBalances = 3,
 		eTransfer = 4,
-		eMainMenue = 5,
+		eTransferLogs=5,
+		eMainMenue = 6,
 	};
 
 	static void _BackToTransactionsMenue() {
@@ -51,6 +53,11 @@ private:
 			clsTransferScreen::Transfer();
 			_BackToTransactionsMenue();
 			break;
+		case enTransactionsMenueOptions::eTransferLogs:
+			system("cls");
+			LogFileTransferScreen::ShowLogs();
+			_BackToTransactionsMenue();
+			break;
 		case enTransactionsMenueOptions::eMainMenue:
 			system("cls");
 			break;
@@ -65,9 +72,10 @@ private:
 		cout << "\t\t\t\t\t   [2] Withdraw." << endl;
 		cout << "\t\t\t\t\t   [3] Total Balances." << endl;
 		cout << "\t\t\t\t\t   [4] Transfer." << endl;
-		cout << "\t\t\t\t\t   [5] Main Menue." << endl;
+		cout << "\t\t\t\t\t   [5] Transfer Logs." << endl;
+		cout << "\t\t\t\t\t   [6] Main Menue." << endl;
 		cout << "\t\t\t\t====================================================" << endl;
-		enTransactionsMenueOptions Option = (enTransactionsMenueOptions)clsUtil::ReadNumberInRange(1, 5, "\t\t\t\tChoose what do you want to do? ");
+		enTransactionsMenueOptions Option = (enTransactionsMenueOptions)clsUtil::ReadNumberInRange(1, 6, "\t\t\t\tChoose what do you want to do? ");
 		_RoutingTransactions(Option);
 	}
 

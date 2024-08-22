@@ -89,13 +89,7 @@ private:
 		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////
-
-	//LogTransfer _ConvertLinetoTransferObject(string Line, string Seperator = Seperator);
-	//string _ConverTransferObjectToLine(LogTransfer Transfer, string Seperator = Seperator);
-	//vector <LogTransfer> _LoadTransfersDataFromFile();
-	//void _SaveTransfersDataToFile(vector <LogTransfer> vTransfers);
-	//void _AddDataLineToTransferFile(LogTransfer  Transfer);
-
+	struct LogTransfer;
 	static LogTransfer _ConvertLinetoTransferObject(string Line, string Seperator = Seperator)
 	{
 		vector <string> strClient = clsString::Split(Line, Seperator);
