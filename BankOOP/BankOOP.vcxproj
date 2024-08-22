@@ -157,6 +157,7 @@
     <ClInclude Include="TotalBalances.h" />
     <ClInclude Include="Transactions.h" />
     <ClInclude Include="transfer.h" />
+    <ClInclude Include="TransferLogsScreen.h" />
     <ClInclude Include="UpdateClient.h" />
     <ClInclude Include="UpdateUser.h" />
     <ClInclude Include="Withdraw.h" />

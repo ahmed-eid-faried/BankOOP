@@ -89,7 +89,15 @@ private:
 		}
 	}
 	////////////////////////////////////////////////////////////////////////////////////////
-
+	static struct LogTransfer {
+		string  DateTime;
+		string AccountFrom;
+		string AccountTo;
+		float Amount;
+		float BalanceAfter1;
+		float BalanceAfter2;
+		string User;
+	};
 	//LogTransfer _ConvertLinetoTransferObject(string Line, string Seperator = Seperator);
 	//string _ConverTransferObjectToLine(LogTransfer Transfer, string Seperator = Seperator);
 	//vector <LogTransfer> _LoadTransfersDataFromFile();
@@ -390,15 +398,6 @@ public:
 		_AccountBalance -= Amount;
 		Save();
 	}
-	static struct LogTransfer {
-		string  DateTime;
-		string AccountFrom;
-		string AccountTo;
-		float Amount;
-		float BalanceAfter1;
-		float BalanceAfter2;
-		string User;
-	};
 	static void TransferLogs(clsBankClient ClientFrom, clsBankClient ClientTo, float TransferValue) {
 		//LogTransfer _ConvertLinetoTransferObject(string Line, string Seperator = Seperator);
 		//string _ConverTransferObjectToLine(LogTransfer Transfer, string Seperator = Seperator);
@@ -420,9 +419,6 @@ public:
 		ClientFrom.Withdraw(TransferValue);
 		ClientTo.Deposit(TransferValue);
 		TransferLogs(ClientFrom, ClientTo, TransferValue);
-	}
-	static vector<LogTransfer> GetTransferLogs() {
-		return _LoadTransfersDataFromFile();
 	}
 	static float GetTotalBalance() {
 		vector <clsBankClient> vClients = clsBankClient::GetClientsList();
