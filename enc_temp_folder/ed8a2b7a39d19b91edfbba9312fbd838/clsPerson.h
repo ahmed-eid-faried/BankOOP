@@ -4,7 +4,7 @@
 using namespace std;
 
 
-class clsPerson : public InterfaceCommunication {
+class clsPerson {
 private:
 	string _FirstName;
 	string _LastName;
@@ -50,24 +50,6 @@ public:
 		cout << "\nEmail    : " << _Email;
 		cout << "\nPhone    : " << _Phone;
 		cout << "\n___________________\n";
-
-	}
-
-
-	///////////////////////////////
-	void SendEmail(string Title, string Body)
-	{
-
-	}
-
-	void SendFax(string Title, string Body)
-	{
-
-	}
-
-	void SendSMS(string Title, string Body)
-	{
-
 
 	}
 };
