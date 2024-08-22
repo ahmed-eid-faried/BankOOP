@@ -175,6 +175,49 @@ private:
 	}
 
 public:
+
+	clsBankClient(string Message) : clsPerson("", "", "", "") {
+		*this = GetAddNewClientObject(ReadAccountNumber(Message));
+	}
+	clsBankClient(enMode Mode, string FirstName, string LastName,
+		string Email, string Phone, string AccountNumber, string PinCode,
+		float AccountBalance) :
+		clsPerson(FirstName, LastName, Email, Phone)
+
+	{
+		_Mode = Mode;
+		_AccountNumber = AccountNumber;
+		_PinCode = PinCode;
+		_AccountBalance = AccountBalance;
+
+	}
+
+	//todo: setter and getter
+
+	//setter and getter
+	string GetAccountNumber() { return _AccountNumber; }
+	//void SetAccountNumber(string AccountNumber) { _AccountNumber = AccountNumber; }
+	__declspec(property(get = GetAccountNumber))string AccountNumber;
+
+	//setter and getter
+	string GetPinCode() { return _PinCode; }
+	void SetPinCode(string PinCode) { _PinCode = PinCode; }
+	__declspec(property(get = GetPinCode, put = SetPinCode))string PinCode;
+
+	//setter and getter
+	float GetAccountBalance() { return _AccountBalance; }
+	void SetAccountBalance(float AccountBalance) { _AccountBalance = AccountBalance; }
+	__declspec(property(get = GetAccountBalance, put = SetAccountBalance))float AccountBalance;
+
+	////////////////////////////////////////////////////////////////////////////////////////
+
+	bool IsEmpty()
+	{
+		return enMode::EmptyMode == _Mode;
+	}
+	bool MarkedForDeleted() { return _MarkedForDelete; }
+   ////////////////////////////////////////////////////////////////////////////////////////
+
 	static string ReadAccountNumberEixsted(string Message = "\t\t\t\tENTER YOUR AccountNumber: ") {
 		string AccountNumber = "";
 		bool state = false;
@@ -198,49 +241,7 @@ public:
 		return AccountNumber;
 	}
 
-	clsBankClient(string Message) : clsPerson("", "", "", "") {
-		*this = GetAddNewClientObject(ReadAccountNumber(Message));
-	}
-
-	clsBankClient(enMode Mode, string FirstName, string LastName,
-		string Email, string Phone, string AccountNumber, string PinCode,
-		float AccountBalance) :
-		clsPerson(FirstName, LastName, Email, Phone)
-
-	{
-		_Mode = Mode;
-		_AccountNumber = AccountNumber;
-		_PinCode = PinCode;
-		_AccountBalance = AccountBalance;
-
-	}
-
-	bool IsEmpty()
-	{
-		return enMode::EmptyMode == _Mode;
-	}
-
-	bool MarkedForDeleted() { return _MarkedForDelete; }
-
-
-	//todo: setter and getter
-
-	//setter and getter
-	string GetAccountNumber() { return _AccountNumber; }
-	//void SetAccountNumber(string AccountNumber) { _AccountNumber = AccountNumber; }
-	__declspec(property(get = GetAccountNumber))string AccountNumber;
-
-	//setter and getter
-	string GetPinCode() { return _PinCode; }
-	void SetPinCode(string PinCode) { _PinCode = PinCode; }
-	__declspec(property(get = GetPinCode, put = SetPinCode))string PinCode;
-
-	//setter and getter
-	float GetAccountBalance() { return _AccountBalance; }
-	void SetAccountBalance(float AccountBalance) { _AccountBalance = AccountBalance; }
-	__declspec(property(get = GetAccountBalance, put = SetAccountBalance))float AccountBalance;
-
-
+	////////////////////////////////////////////////////////////////////////////////////////
 
 	void Print()
 	{
@@ -286,20 +287,16 @@ public:
 		}
 		return  _GetEmptyClientObject();
 	}
-
 	static clsBankClient Find(string AccountNumber, string PinCode)
 	{
 		clsBankClient Client = Find(AccountNumber);
 		return Client.PinCode == PinCode ? Client : _GetEmptyClientObject();
 	}
-
 	enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1, svFaildAccountNumberExists = 2 };
-
 	static bool IsClientExist(string AccountNumber)
 	{
 		return !(Find(AccountNumber).IsEmpty());
 	}
-
 	bool Delete()
 	{
 		vector <clsBankClient> _vClients = _LoadClientsDataFromFile();
@@ -314,15 +311,10 @@ public:
 		*this = _GetEmptyClientObject();
 		return true;
 	}
-
-
-
 	static vector <clsBankClient> GetClientsList()
 	{
 		return  _LoadClientsDataFromFile();
 	}
-
-
 	static float GetTotalBalances()
 	{
 		float TotalBalances = 0;
@@ -368,7 +360,6 @@ public:
 		}
 		}
 	}
-
 	static clsBankClient GetAddNewClientObject(string AccountNumber)
 	{
 		return clsBankClient(enMode::AddNewMode, "", "", "", "", AccountNumber, "", 0);
@@ -378,12 +369,13 @@ public:
 		_AccountBalance += Amount;
 		Save();
 	}
-
 	void Withdraw(float Amount)
 	{
 		_AccountBalance -= Amount;
 		Save();
 	}
+
+	////////////////////////////////////////////////////////////////////////////////////////
 	static struct LogTransfer {
 		string  DateTime;
 		string AccountFrom;
@@ -409,7 +401,6 @@ public:
 		};
 		_AddDataLineToTransferFile(Transfer);
 	}
-
 	static void Transfer(clsBankClient ClientFrom, clsBankClient ClientTo, float TransferValue) {
 		ClientFrom.Withdraw(TransferValue);
 		ClientTo.Deposit(TransferValue);

@@ -28,6 +28,9 @@
     <Filter Include="Header Files\ui\MangeUsers">
       <UniqueIdentifier>{c4f2a42e-8fdc-4355-beec-cec20392d52d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ui\Currency">
+      <UniqueIdentifier>{a27bdb71-dbd2-4c88-8e43-d635d0fbe3e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BankOOP.cpp">
@@ -131,5 +134,19 @@
     <ClInclude Include="InterfaceCommunication.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="clsCurrency.h">
+      <Filter>Header Files\ui\Currency</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrencyExhange.h">
+      <Filter>Header Files\ui\Currency</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BankOOP.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

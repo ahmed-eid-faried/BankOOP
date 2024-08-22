@@ -132,7 +132,9 @@
   <ItemGroup>
     <ClInclude Include="AddNewClient.h" />
     <ClInclude Include="AddNewUser.h" />
+    <ClInclude Include="CurrencyExhange.h" />
     <ClInclude Include="clsBankClient.h" />
+    <ClInclude Include="clsCurrency.h" />
     <ClInclude Include="clsDate.h" />
     <ClInclude Include="clsDeleteClient.h" />
     <ClInclude Include="clsInputValidate.h" />
@@ -154,6 +156,7 @@
     <ClInclude Include="LoginScreen.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MangeUsers.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ShowClients.h" />
     <ClInclude Include="TotalBalances.h" />
     <ClInclude Include="Transactions.h" />
@@ -162,6 +165,9 @@
     <ClInclude Include="UpdateClient.h" />
     <ClInclude Include="UpdateUser.h" />
     <ClInclude Include="Withdraw.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BankOOP.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
