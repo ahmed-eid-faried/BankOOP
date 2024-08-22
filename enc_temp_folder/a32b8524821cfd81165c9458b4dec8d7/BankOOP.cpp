@@ -4,7 +4,8 @@
   
 int main()
 {
- 	while (true)
+	//clsAddNewUserScreen::AddNewUser();
+	while (true)
 	{
 		 clsLoginScreen::LoginScreen();
 	}

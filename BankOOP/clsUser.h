@@ -29,7 +29,7 @@ private:
 	{
 		vector <string> strClient = clsString::Split(Line, Seperator);
 		return clsUser(enMode::UpdateMode, strClient[0], strClient[1], strClient[2], strClient[3], strClient[4],
-			strClient[5], stod(strClient[6]));
+			clsUtil::DecryptText(strClient[5]), stod(strClient[6]));
 	}
 	static string _ConverClientObjectToLine(clsUser Client, string Seperator = Seperator)
 	{
@@ -39,7 +39,7 @@ private:
 		Line += Client.Email + Seperator;
 		Line += Client.Phone + Seperator;
 		Line += Client.UserName + Seperator;
-		Line += Client.Password + Seperator;
+		Line += clsUtil::EncryptText(Client.Password) + Seperator;
 		Line += to_string(Client.Permissions);
 		return Line;
 	}
