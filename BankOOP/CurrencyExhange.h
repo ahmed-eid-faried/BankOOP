@@ -11,6 +11,7 @@
 #include "transfer.h"
 #include "TransferLogsScreen.h"
 #include "ListCurrencies.h"
+#include "FindCurrency.h"
 using namespace std;
 
 class clsCurrencyScreen : protected clsScreen {
@@ -40,7 +41,7 @@ private:
 			break;
 		case enCurrencyMenueOptions::eFindCurrency:
 			system("cls");
-			//clsFindCurrencyScreen::FindCurrency();
+			clsFindCurrencyScreen::FindCurrency();
 			_BackToCurrencyMenue();
 			break;
 		case enCurrencyMenueOptions::eUpdateRate:
@@ -60,7 +61,7 @@ private:
 			break;
 		}
 	}
-
+	
 	static void _ShowCurrencyMenue() {
 		_DrawScreenHeader("Currency Exhange Menue");
 		cout << "\t\t\t\t\t   [1] List Currencies." << endl;

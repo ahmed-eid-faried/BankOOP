@@ -146,6 +146,9 @@
     <ClInclude Include="ListCurrencies.h">
       <Filter>Header Files\ui\Currency</Filter>
     </ClInclude>
+    <ClInclude Include="FindCurrency.h">
+      <Filter>Header Files\ui\Currency</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BankOOP.rc">

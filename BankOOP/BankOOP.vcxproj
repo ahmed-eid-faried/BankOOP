@@ -147,6 +147,7 @@
     <ClInclude Include="DeleteUser.h" />
     <ClInclude Include="Deposit.h" />
     <ClInclude Include="FindClient.h" />
+    <ClInclude Include="FindCurrency.h" />
     <ClInclude Include="FindUser.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="InterfaceCommunication.h" />
