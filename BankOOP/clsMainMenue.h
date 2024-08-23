@@ -24,7 +24,8 @@ private:
 		eTransactions = 6,
 		eMangeUsers = 7,
 		eLogFile = 8,
-		eExiting = 9,
+		eCurrency = 9,
+		eExiting = 10,
 	};
 	static void _Exiting() {
 		cout << "Exiting the CLI" << endl;
@@ -57,6 +58,9 @@ private:
 	}
 	static void _ShowLog() {
 		LogFileRigesterScreen::ShowLogs();
+	}
+	static void _Currency() {
+		clsCurrencyScreen::Currency();
 	}
 	static void _LoginScreen() {
 		//callstak
@@ -105,7 +109,12 @@ private:
 			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_LogFile)) { _ShowLog(); };
 			BackToMainMenue();
 			break;
-		case enMainMenueOptions::eExiting:
+		case enMainMenueOptions::eCurrency:
+			system("cls");
+			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Currency)) { _Currency(); };
+			BackToMainMenue();
+			break;
+	case enMainMenueOptions::eExiting:
 			system("cls");
 			_LoginScreen();
 			//Exiting();
@@ -126,17 +135,18 @@ public:
 
 	static void ShowMainMenue() {
 		_DrawScreenHeader("Main Menue Screen");
-		cout << "\t\t\t\t\t   [1] Show Client List." << endl;
-		cout << "\t\t\t\t\t   [2] Add New Client." << endl;
-		cout << "\t\t\t\t\t   [3] Delete Client." << endl;
-		cout << "\t\t\t\t\t   [4] Update Client info." << endl;
-		cout << "\t\t\t\t\t   [5] Find Client." << endl;
-		cout << "\t\t\t\t\t   [6] Transactions Menue." << endl;
-		cout << "\t\t\t\t\t   [7] Mange Users Menue." << endl;
-		cout << "\t\t\t\t\t   [8] Login Register Screen." << endl;
-		cout << "\t\t\t\t\t   [9] Logout." << endl;
+		cout << "\t\t\t\t\t   [1]  Show Client List." << endl;
+		cout << "\t\t\t\t\t   [2]  Add New Client." << endl;
+		cout << "\t\t\t\t\t   [3]  Delete Client." << endl;
+		cout << "\t\t\t\t\t   [4]  Update Client info." << endl;
+		cout << "\t\t\t\t\t   [5]  Find Client." << endl;
+		cout << "\t\t\t\t\t   [6]  Transactions Menue." << endl;
+		cout << "\t\t\t\t\t   [7]  Mange Users Menue." << endl;
+		cout << "\t\t\t\t\t   [8]  Login Register Screen." << endl;
+		cout << "\t\t\t\t\t   [9]  Currency Exhange Menue." << endl;
+		cout << "\t\t\t\t\t   [10] Logout." << endl;
 		cout << "\t\t\t\t====================================================" << endl;
-		enMainMenueOptions Option = (enMainMenueOptions)clsUtil::ReadNumberInRange(1, 9, "\t\t\t\tChoose what do you want to do? ");
+		enMainMenueOptions Option = (enMainMenueOptions)clsUtil::ReadNumberInRange(1, 10, "\t\t\t\tChoose what do you want to do? ");
 		_Routing(Option);
 	}
 };

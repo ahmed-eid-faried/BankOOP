@@ -18,7 +18,8 @@ const enum enPermissions {
 	PERMISSION_Transactions = 1 << 5, // 0100000 -> 32
 	PERMISSION_MangeUsers = 1 << 6, // 1000000 -> 64
 	PERMISSION_LogFile = 1 << 7, // 1000000 -> 128
-	PERMISSION_AllPermissions = (1 << 0 | 1 << 1 | 1 << 2 | 1 << 3 | 1 << 4 | 1 << 5 | 1 << 6 | 1 << 7), // 1111111 -> 127
+	PERMISSION_Currency = 1 << 8, // 1000000 -> 128
+	PERMISSION_AllPermissions = (1 << 0 | 1 << 1 | 1 << 2 | 1 << 3 | 1 << 4 | 1 << 5 | 1 << 6 | 1 << 7 | 1 << 8), // 1111111 -> 255
 };
 
 struct sPermissions {

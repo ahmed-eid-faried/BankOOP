@@ -266,6 +266,12 @@ public:
 		_Rate = Amount;
 		Save();
 	}
+	static float CurrencyCalculator(clsCurrency CurrencyFrom, clsCurrency CurrencyTo, float Amount)
+	{
+		return  Amount * (CurrencyTo.Rate / CurrencyFrom.Rate);
+	}
+
+
 
 };
 

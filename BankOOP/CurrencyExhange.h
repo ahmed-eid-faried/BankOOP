@@ -13,6 +13,7 @@
 #include "ListCurrencies.h"
 #include "FindCurrency.h"
 #include "UpdateRate.h"
+#include "CurrencyCalculator.h"
 using namespace std;
 
 class clsCurrencyScreen : protected clsScreen {
@@ -52,7 +53,7 @@ private:
 			break;
 		case enCurrencyMenueOptions::eCurrencyCalculator:
 			system("cls");
-			//clsCurrencyCalculatorScreen::CurrencyCalculator();
+			clsCurrencyCalculatorScreen::CurrencyCalculator();
 			_BackToCurrencyMenue();
 			break;
 		case enCurrencyMenueOptions::eMainMenue:

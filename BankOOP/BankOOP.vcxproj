@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="AddNewClient.h" />
     <ClInclude Include="AddNewUser.h" />
+    <ClInclude Include="CurrencyCalculator.h" />
     <ClInclude Include="CurrencyExhange.h" />
     <ClInclude Include="clsBankClient.h" />
     <ClInclude Include="clsCurrency.h" />
