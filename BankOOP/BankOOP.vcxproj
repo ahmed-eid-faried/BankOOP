@@ -165,6 +165,7 @@
     <ClInclude Include="transfer.h" />
     <ClInclude Include="TransferLogsScreen.h" />
     <ClInclude Include="UpdateClient.h" />
+    <ClInclude Include="UpdateRate.h" />
     <ClInclude Include="UpdateUser.h" />
     <ClInclude Include="Withdraw.h" />
   </ItemGroup>

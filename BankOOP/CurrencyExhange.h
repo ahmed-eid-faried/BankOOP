@@ -12,6 +12,7 @@
 #include "TransferLogsScreen.h"
 #include "ListCurrencies.h"
 #include "FindCurrency.h"
+#include "UpdateRate.h"
 using namespace std;
 
 class clsCurrencyScreen : protected clsScreen {
@@ -46,7 +47,7 @@ private:
 			break;
 		case enCurrencyMenueOptions::eUpdateRate:
 			system("cls");
-			//clsUpdateRateScreen::UpdateRate();
+			clsUpdateRateScreen::UpdateRate();
 			_BackToCurrencyMenue();
 			break;
 		case enCurrencyMenueOptions::eCurrencyCalculator:

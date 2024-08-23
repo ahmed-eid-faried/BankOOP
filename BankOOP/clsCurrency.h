@@ -172,12 +172,11 @@ public:
 	{
 		cout << "\n\t\t\t\tCurrency Card:";
 		cout << "\n\t\t\t\t___________________";
-		cout << "\n\t\t\t\tCountry   : " << Country;
-		cout << "\n\t\t\t\tCurrencyCode    : " << CurrencyCode;
-		cout << "\n\t\t\t\tCurrencyName   : " << CurrencyName;
-		cout << "\n\t\t\t\tRate       : " << Rate;
+		cout << "\n\t\t\t\tCountry     : " << Country;
+		cout << "\n\t\t\t\tCurrencyCode: " << CurrencyCode;
+		cout << "\n\t\t\t\tCurrencyName: " << CurrencyName;
+		cout << "\n\t\t\t\tRate        : " << Rate;
 		cout << "\n\t\t\t\t___________________\n";
-
 	}
 
 	static clsCurrency Find(string Country)
@@ -189,7 +188,8 @@ public:
 			while (getline(MyFile, Line))
 			{
 				clsCurrency Currency = _ConvertLinetoCurrencyObject(Line, Seperator);
-				if (Currency.Country == Country) {
+				string UpCountry = clsString::UpperAllString(Country);
+				if (clsString::UpperAllString(Currency.Country) == UpCountry || clsString::UpperAllString(Currency.CurrencyCode) == UpCountry) {
 					MyFile.close();
 					return Currency;
 				}
@@ -266,9 +266,8 @@ public:
 		_Rate = Amount;
 		Save();
 	}
- 
+
 };
 
 
 
- 

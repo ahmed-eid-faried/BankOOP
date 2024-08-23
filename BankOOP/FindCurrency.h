@@ -7,9 +7,9 @@
 class clsFindCurrencyScreen :protected clsScreen {
 private:
 
-	static void _ShowResult(string AccountNumber, clsCurrency Currency) {
+	static void _ShowResult(string Country, clsCurrency Currency) {
 		if (Currency.IsEmpty()) {
-			cout << "\n\t\t\t\tCurrency with Country (" << AccountNumber << ") is Not Found!" << endl;
+			cout << "\n\t\t\t\tCurrency with Country (" << Country << ") is Not Found!" << endl;
 		}
 		else {
 			Currency.Print();
@@ -18,8 +18,8 @@ private:
 public:
 	static void FindCurrency() {
 		_DrawScreenHeader("Find Currency");
-		string AccountNumber = clsCurrency::ReadCountryEixsted("\n\t\t\t\tPlease enter Country? ");;
-		clsCurrency Currency = clsCurrency::Find(AccountNumber);
-		_ShowResult(AccountNumber, Currency);
+		string Country = clsCurrency::ReadCountryEixsted("\n\t\t\t\tPlease enter Country? ");;
+		clsCurrency Currency = clsCurrency::Find(Country);
+		_ShowResult(Country, Currency);
 	}
 };
