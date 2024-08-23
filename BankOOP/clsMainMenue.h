@@ -11,6 +11,7 @@
 #include "clsUser.h"
 #include "LoginScreen.h"
 #include "LogFileRigesterScreen.h"
+#include "CurrencyExhange.h"
 using namespace std;
 static void LoginScreen();
 class clsMainMenueScreen :protected clsScreen {
@@ -111,8 +112,10 @@ private:
 			break;
 		case enMainMenueOptions::eCurrency:
 			system("cls");
-			if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Currency)) { _Currency(); };
-			BackToMainMenue();
+			_Currency();
+			//if (clsScreen::NivagationPermission(enPermissions::PERMISSION_Currency)) { _Currency(); };
+			system("cls");
+			ShowMainMenue();
 			break;
 	case enMainMenueOptions::eExiting:
 			system("cls");
